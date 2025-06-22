@@ -8,20 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1E1E1E;
+            --element-bg: #2D2D2D;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-color: #4A90E2;
+            --accent-light: #6BA8FF;
+            --border-color: #3D3D3D;
+            --glow: 0 0 15px rgba(74, 144, 226, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
         }
-        
+
         body {
             background: #0a0a12;
             color: #e0e0ff;
             min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
         }
-        
+
         .widget-container {
             display: flex;
             flex-direction: column;
@@ -29,7 +42,7 @@
             padding: 20px;
             max-width: 100%;
         }
-        
+
         .widget-box {
             background-color: #1e1e1e;
             border-radius: 8px;
@@ -38,12 +51,11 @@
             overflow: hidden;
             width: 100%;
         }
-        
+
         h1, h2 {
             color: #ffffff;
         }
 
-        /* Menu styles */
         .menu-container {
             position: relative;
             display: inline-block;
@@ -111,7 +123,7 @@
             align-items: center;
             font-size: 0.875rem;
         }
-        
+
         .status-dot {
             width: 12px;
             height: 12px;
@@ -119,7 +131,7 @@
             margin-right: 8px;
             position: relative;
         }
-        
+
         .status-dot::before {
             content: '';
             position: absolute;
@@ -130,23 +142,23 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
-        
+
         .status-connecting {
             background-color: #fbbf24;
         }
-        
+
         .status-connecting::before {
             background-color: #fbbf24;
         }
-        
+
         .status-connected {
             background-color: #22c55e;
         }
-        
+
         .status-disconnected {
             background-color: #ef4444;
         }
-        
+
         .status-error {
             background-color: #ef4444;
         }
@@ -157,28 +169,27 @@
             100% { opacity: 1; }
         }
 
-        /* Full height for economic calendar */
         .economic-calendar-container {
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        
-        /* Collage styles */
+
         .collage-container {
             background-color: #1e1e1e;
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
+            width: 100%;
         }
-        
+
         .collage-header {
             text-align: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid #333;
         }
-        
+
         .collage-title {
             font-size: 2rem;
             margin-bottom: 0.5rem;
@@ -187,30 +198,30 @@
             -webkit-text-fill-color: transparent;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         .collage-subtitle {
             font-size: 1.1rem;
             color: #aaa;
             margin-bottom: 1.5rem;
         }
-        
+
         .collage-layout {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .upload-top {
             width: 100%;
         }
-        
+
         .upload-bottom {
             display: flex;
             gap: 1.5rem;
             width: 100%;
         }
-        
+
         .upload-box {
             border: 2px dashed #333;
             padding: 1.5rem;
@@ -223,18 +234,18 @@
             flex-direction: column;
             min-height: 300px;
         }
-        
+
         .upload-box:hover {
             border-color: #4361ee;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .upload-box h3 {
             margin-bottom: 1rem;
             font-size: 1.2rem;
             color: #4cc9f0;
         }
-        
+
         .preview-container {
             position: relative;
             flex: 1;
@@ -245,14 +256,14 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        
+
         .preview-img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             display: none;
         }
-        
+
         .draggable-text {
             position: absolute;
             color: white;
@@ -268,12 +279,12 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.2s ease;
         }
-        
+
         .draggable-text:hover {
             background-color: rgba(0, 0, 0, 0.7);
             border-color: #4cc9f0;
         }
-        
+
         .collage-controls {
             display: flex;
             justify-content: center;
@@ -281,7 +292,7 @@
             flex-wrap: wrap;
             margin-top: 1.5rem;
         }
-        
+
         .collage-btn {
             background-color: #4361ee;
             color: white;
@@ -296,13 +307,13 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .collage-btn:hover {
             background-color: #3f37c9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        
+
         .collage-btn:disabled {
             background-color: #333;
             color: #666;
@@ -310,7 +321,7 @@
             transform: none;
             box-shadow: none;
         }
-        
+
         .collage-file-input {
             width: 100%;
             color: #f8f9fa;
@@ -322,11 +333,11 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .collage-file-input:hover {
             border-color: #4361ee;
         }
-        
+
         .collage-result {
             width: 100%;
             display: flex;
@@ -334,7 +345,7 @@
             align-items: center;
             margin-top: 2rem;
         }
-        
+
         #collageCanvas {
             max-width: 100%;
             border: 1px solid #333;
@@ -343,7 +354,7 @@
             display: none;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
-        
+
         .instructions {
             margin: 1.5rem 0;
             padding: 1.5rem;
@@ -352,39 +363,160 @@
             border-left: 4px solid #4cc9f0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .instructions p {
             line-height: 1.6;
         }
-        
+
         .file-input-label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
             color: #ccc;
         }
-        
-        /* Fear and greed widget container */
+
         .fear-greed-container {
-            margin-top: 20px;
-            padding: 15px;
             background-color: #1e1e1e;
             border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
         }
-        
-        /* Responsive adjustments */
+
+        .main-container {
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--glow);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .clocks-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .clock-card {
+            background: var(--element-bg);
+            border-radius: 14px;
+            padding: 20px 15px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .clock-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+            border-color: var(--accent-light);
+        }
+
+        .clock-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+            opacity: 0.8;
+        }
+
+        .city {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .city svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 1.8;
+            color: var(--accent-light);
+        }
+
+        .time {
+            font-size: 2rem;
+            font-weight: 300;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 15px 0;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .time span {
+            margin: 0 2px;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .timezone {
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            text-align: center;
+            margin-top: 10px;
+            padding: 6px 12px;
+            background: rgba(74, 144, 226, 0.15);
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            font-weight: 500;
+        }
+
+        .timezone-container {
+            text-align: center;
+        }
+
+        .colon {
+            animation: pulse 1.5s infinite ease-in-out;
+            position: relative;
+            top: -3px;
+            font-size: 1.8rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @media (max-width: 1200px) {
+            .clocks-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .collage-title {
-                font-size: 1.8rem;
+            .clocks-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
-            
-            .draggable-text {
-                font-size: 1.5rem;
-                padding: 0.3rem 0.6rem;
-            }
-            
-            .upload-bottom {
-                flex-direction: column;
+
+            .main-container {
+                padding: 15px;
             }
         }
     </style>
@@ -432,7 +564,6 @@
             </div>
         </div>
     </nav>
-
     <div class="widget-container">
         <!-- Первый ряд: Фото коллаж -->
         <div class="collage-container">
@@ -440,14 +571,14 @@
                 <h1 class="collage-title">Фото Коллаж 3560×2400</h1>
                 <p class="collage-subtitle">Создайте профессиональный коллаж для ваших проектов</p>
             </header>
-            
+
             <div class="instructions">
                 <p>1. 1D proboy short</p>
                 <p>2. 1D proboy LONG</p>
                 <p>3. 1D LP LONG</p>
                 <p>4. 1D LP short</p>
             </div>
-            
+
             <div class="collage-layout">
                 <!-- Верхний блок -->
                 <div class="upload-top">
@@ -461,7 +592,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Нижние блоки -->
                 <div class="upload-bottom">
                     <div class="upload-box">
@@ -473,7 +604,7 @@
                             <div id="bottomLeftText" class="draggable-text">1D</div>
                         </div>
                     </div>
-                    
+
                     <div class="upload-box">
                         <h3>Нижнее правое фото (1H)</h3>
                         <label class="file-input-label">Выберите изображение:</label>
@@ -485,7 +616,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="collage-controls">
                 <button id="generateBtn" class="collage-btn" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -504,13 +635,100 @@
                     Скачать PNG (3560×2400)
                 </button>
             </div>
-            
+
             <div class="collage-result">
                 <canvas id="collageCanvas"></canvas>
             </div>
         </div>
-        
-        <!-- Второй ряд: Экономический календарь -->
+
+        <!-- Мировые часы и индекс страха и жадности -->
+        <div class="main-container">
+            <h1>Мировое Время</h1>
+            <div class="clocks-grid">
+                <div class="clock-card">
+                    <div class="city">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Москва
+                    </div>
+                    <div class="time" id="moscow-time">--<span class="colon">:</span>--<span class="colon">:</span>--</div>
+                    <div class="date" id="moscow-date"></div>
+                    <div class="timezone-container">
+                        <span class="timezone">GMT+3</span>
+                    </div>
+                </div>
+
+                <div class="clock-card">
+                    <div class="city">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Пекин
+                    </div>
+                    <div class="time" id="beijing-time">--<span class="colon">:</span>--<span class="colon">:</span>--</div>
+                    <div class="date" id="beijing-date"></div>
+                    <div class="timezone-container">
+                        <span class="timezone">GMT+8</span>
+                    </div>
+                </div>
+
+                <div class="clock-card">
+                    <div class="city">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Нью-Йорк
+                    </div>
+                    <div class="time" id="newyork-time">--<span class="colon">:</span>--<span class="colon">:</span>--</div>
+                    <div class="date" id="newyork-date"></div>
+                    <div class="timezone-container">
+                        <span class="timezone">GMT-4</span>
+                    </div>
+                </div>
+
+                <div class="clock-card">
+                    <div class="city">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Лондон
+                    </div>
+                    <div class="time" id="london-time">--<span class="colon">:</span>--<span class="colon">:</span>--</div>
+                    <div class="date" id="london-date"></div>
+                    <div class="timezone-container">
+                        <span class="timezone">GMT+1</span>
+                    </div>
+                </div>
+
+                <div class="fear-greed-container">
+                    <script async src="https://static.coinstats.app/widgets/v5/cs-widget.js"></script>
+                    <fear-and-greed theme="dark"
+                        direction="horizontal"
+                        background="#0D0D0D"
+                        is-market-sentiment-visible="true"
+                        is-last-updated-visible="true"
+                        title-color="#FFFFFF"
+                        chart-indicator-one-color="#F02935"
+                        chart-indicator-two-color="#F07D29"
+                        chart-indicator-three-color="#9ACB82"
+                        chart-indicator-four-color="#34B349"
+                        subtitle-color="#999999"
+                        last-updated-color="#999999"
+                        arrow-color="#262626"></fear-and-greed>
+                </div>
+            </div>
+        </div>
+
+        <!-- Экономический календарь -->
         <div class="widget-box economic-calendar-container">
             <div id="economic-calendar-867663" style="flex-grow: 1;">
                 <script type="text/javascript" src="https://www.rebatekingfx.com/Content/remote/remote-calendar-widget.js"></script>
@@ -528,27 +746,8 @@
                     });
                 </script>
             </div>
-            
-            <!-- Индекс страха и жадности под календарем -->
-            <div class="fear-greed-container">
-                <script async src="https://static.coinstats.app/widgets/v5/cs-widget.js"></script>
-                <fear-and-greed theme="dark"
-                    direction="horizontal"
-                    background="#0D0D0D"
-                    is-market-sentiment-visible="true"
-                    is-last-updated-visible="true"
-                    title-color="#FFFFFF"
-                    chart-indicator-one-color="#F02935"
-                    chart-indicator-two-color="#F07D29"
-                    chart-indicator-three-color="#9ACB82"
-                    chart-indicator-four-color="#34B349"
-                    subtitle-color="#999999"
-                    last-updated-color="#999999"
-                    arrow-color="#262626"></fear-and-greed>
-            </div>
         </div>
     </div>
-
     <script>
         // Menu functions
         function toggleMenu() {
@@ -576,14 +775,14 @@
         window.addEventListener('click', function(event) {
             const menuContent = document.getElementById('menuContent');
             const menuButton = document.getElementById('menuButton');
-            
-            if (menuContent && menuButton && 
-                !menuContent.contains(event.target) && 
+
+            if (menuContent && menuButton &&
+                !menuContent.contains(event.target) &&
                 !menuButton.contains(event.target)) {
                 menuContent.classList.remove('show');
             }
         });
-        
+
         // Collage functions
         function initCollage() {
             // Элементы DOM
@@ -596,23 +795,23 @@
             const generateBtn = document.getElementById('generateBtn');
             const downloadBtn = document.getElementById('downloadBtn');
             const resultCanvas = document.getElementById('collageCanvas');
-            
+
             // Контейнеры превью
             const topPreviewContainer = document.getElementById('topPreviewContainer');
             const bottomLeftPreviewContainer = document.getElementById('bottomLeftPreviewContainer');
             const bottomRightPreviewContainer = document.getElementById('bottomRightPreviewContainer');
-            
+
             // Текстовые элементы
             const topText = document.getElementById('topText');
             const bottomLeftText = document.getElementById('bottomLeftText');
             const bottomRightText = document.getElementById('bottomRightText');
-            
+
             // Размеры коллажа
             const COLLAGE_WIDTH = 3560;
             const COLLAGE_HEIGHT = 2400;
             const TOP_PART_HEIGHT = 1200;
             const BOTTOM_PART_HEIGHT = 1200;
-            
+
             // Переменная для хранения имени файла второго изображения
             let bottomLeftFileName = '';
 
@@ -646,13 +845,13 @@
                     imageSize: { width: 0, height: 0 }
                 }
             };
-            
+
             // Инициализация перетаскивания текста
             function initDrag(section) {
                 const { element, container } = collageData[section];
                 let isDragging = false;
                 let offsetX, offsetY;
-                
+
                 element.addEventListener('mousedown', (e) => {
                     isDragging = true;
                     const rect = element.getBoundingClientRect();
@@ -660,31 +859,31 @@
                     offsetY = e.clientY - rect.top;
                     e.preventDefault();
                 });
-                
+
                 document.addEventListener('mousemove', (e) => {
                     if (!isDragging) return;
-                    
+
                     const containerRect = container.getBoundingClientRect();
                     let newX = e.clientX - containerRect.left - offsetX;
                     let newY = e.clientY - containerRect.top - offsetY;
-                    
+
                     // Ограничение перемещения в пределах контейнера
                     newX = Math.max(0, Math.min(newX, containerRect.width - element.offsetWidth));
                     newY = Math.max(0, Math.min(newY, containerRect.height - element.offsetHeight));
-                    
+
                     element.style.left = newX + 'px';
                     element.style.top = newY + 'px';
-                    
+
                     // Сохраняем позицию
                     collageData[section].position = { x: newX, y: newY };
                 });
-                
+
                 document.addEventListener('mouseup', () => {
                     isDragging = false;
                     updateContainerSizes();
                 });
             }
-            
+
             // Обновление размеров контейнеров и изображений
             function updateContainerSizes() {
                 Object.keys(collageData).forEach(section => {
@@ -694,7 +893,7 @@
                             width: data.container.offsetWidth,
                             height: data.container.offsetHeight
                         };
-                        
+
                         // Используем naturalWidth/naturalHeight для реальных размеров изображения
                         data.imageSize = {
                             width: data.previewImg.naturalWidth,
@@ -703,24 +902,24 @@
                     }
                 });
             }
-            
+
             // Инициализация перетаскивания для всех секций
             Object.keys(collageData).forEach(section => initDrag(section));
-            
+
             // Обработчики загрузки изображений
             topImageInput.addEventListener('change', (e) => handleImageUpload(e, 'top'));
             bottomLeftImageInput.addEventListener('change', (e) => handleImageUpload(e, 'bottomLeft'));
             bottomRightImageInput.addEventListener('change', (e) => handleImageUpload(e, 'bottomRight'));
-            
+
             function handleImageUpload(event, section) {
                 const file = event.target.files[0];
                 if (!file) return;
-                
+
                 // Сохраняем имя файла для нижнего левого изображения
                 if (section === 'bottomLeft') {
                     bottomLeftFileName = file.name.replace(/\.[^/.]+$/, ""); // Удаляем расширение
                 }
-                
+
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     const img = new Image();
@@ -728,7 +927,7 @@
                         collageData[section].image = img;
                         collageData[section].previewImg.src = e.target.result;
                         collageData[section].previewImg.style.display = 'block';
-                        
+
                         // Обновляем размеры после загрузки изображения
                         setTimeout(() => {
                             updateContainerSizes();
@@ -739,109 +938,109 @@
                 };
                 reader.readAsDataURL(file);
             }
-            
+
             function checkImagesLoaded() {
                 generateBtn.disabled = !(
-                    collageData.top.image && 
-                    collageData.bottomLeft.image && 
+                    collageData.top.image &&
+                    collageData.bottomLeft.image &&
                     collageData.bottomRight.image
                 );
             }
-            
+
             // Генерация коллажа с точным позиционированием текста
             generateBtn.addEventListener('click', () => {
                 resultCanvas.width = COLLAGE_WIDTH;
                 resultCanvas.height = COLLAGE_HEIGHT;
                 const ctx = resultCanvas.getContext('2d');
-                
+
                 // Очистка и фон
                 ctx.fillStyle = '#2a2a2a';
                 ctx.fillRect(0, 0, COLLAGE_WIDTH, COLLAGE_HEIGHT);
-                
+
                 // Верхнее изображение
                 const topImgWidth = COLLAGE_WIDTH;
                 const topImgHeight = TOP_PART_HEIGHT;
                 ctx.drawImage(collageData.top.image, 0, 0, topImgWidth, topImgHeight);
-                
+
                 // Текст на верхнем изображении
                 drawText(ctx, 'top', '5M', 0, 0, topImgWidth, topImgHeight);
-                
+
                 // Нижние изображения
                 const bottomImgWidth = COLLAGE_WIDTH / 2;
                 const bottomImgHeight = BOTTOM_PART_HEIGHT;
-                
+
                 // Левое нижнее
                 ctx.drawImage(
-                    collageData.bottomLeft.image, 
-                    0, 
-                    TOP_PART_HEIGHT, 
-                    bottomImgWidth, 
+                    collageData.bottomLeft.image,
+                    0,
+                    TOP_PART_HEIGHT,
+                    bottomImgWidth,
                     bottomImgHeight
                 );
                 drawText(
-                    ctx, 
-                    'bottomLeft', 
-                    '1D', 
-                    0, 
-                    TOP_PART_HEIGHT, 
-                    bottomImgWidth, 
+                    ctx,
+                    'bottomLeft',
+                    '1D',
+                    0,
+                    TOP_PART_HEIGHT,
+                    bottomImgWidth,
                     bottomImgHeight
                 );
-                
+
                 // Правое нижнее
                 ctx.drawImage(
-                    collageData.bottomRight.image, 
-                    bottomImgWidth, 
-                    TOP_PART_HEIGHT, 
-                    bottomImgWidth, 
+                    collageData.bottomRight.image,
+                    bottomImgWidth,
+                    TOP_PART_HEIGHT,
+                    bottomImgWidth,
                     bottomImgHeight
                 );
                 drawText(
-                    ctx, 
-                    'bottomRight', 
-                    '1H', 
-                    bottomImgWidth, 
-                    TOP_PART_HEIGHT, 
-                    bottomImgWidth, 
+                    ctx,
+                    'bottomRight',
+                    '1H',
+                    bottomImgWidth,
+                    TOP_PART_HEIGHT,
+                    bottomImgWidth,
                     bottomImgHeight
                 );
-                
+
                 // Показываем результат
                 resultCanvas.style.display = 'block';
                 downloadBtn.disabled = false;
-                
+
                 // Прокрутка к результату
                 resultCanvas.scrollIntoView({ behavior: 'smooth' });
             });
-            
+
             // Функция для отрисовки текста с учетом масштабирования
             function drawText(ctx, section, text, offsetX, offsetY, targetWidth, targetHeight) {
                 const data = collageData[section];
-                
+
                 if (data.imageSize.width > 0 && data.imageSize.height > 0) {
                     // Рассчитываем масштаб
                     const scaleX = targetWidth / data.imageSize.width;
                     const scaleY = targetHeight / data.imageSize.height;
-                    
+
                     // Рассчитываем позицию текста в финальном изображении
                     const textX = offsetX + (data.position.x / data.containerSize.width) * data.imageSize.width * scaleX;
                     const textY = offsetY + (data.position.y / data.containerSize.height) * data.imageSize.height * scaleY;
-                    
+
                     // Настройки текста
                     ctx.font = 'bold 80px Montserrat';
                     ctx.fillStyle = 'white';
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
                     ctx.shadowBlur = 6;
-                    
+
                     // Рисуем текст (+80 для компенсации размера шрифта)
                     ctx.fillText(text, textX, textY + 80);
-                    
+
                     // Сбрасываем тень
                     ctx.shadowColor = 'transparent';
                     ctx.shadowBlur = 0;
                 }
             }
-            
+
             // Скачивание коллажа с именем второго фото
             downloadBtn.addEventListener('click', () => {
                 const link = document.createElement('a');
@@ -851,20 +1050,75 @@
                 link.href = resultCanvas.toDataURL('image/png', 1.0);
                 link.click();
             });
-            
+
             // Устанавливаем начальные позиции текста
             Object.keys(collageData).forEach(section => {
                 const data = collageData[section];
                 data.element.style.left = data.position.x + 'px';
                 data.element.style.top = data.position.y + 'px';
             });
-            
+
             // Обновляем размеры при изменении окна
             window.addEventListener('resize', updateContainerSizes);
         }
-        
+
         // Инициализация коллажа при загрузке страницы
         document.addEventListener('DOMContentLoaded', initCollage);
+
+        // Русские названия месяцев и дней недели
+        const months = [
+            'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+            'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+        ];
+
+        const days = [
+            'воскресенье', 'понедельник', 'вторник', 'среда',
+            'четверг', 'пятница', 'суббота'
+        ];
+
+        function updateTime() {
+            const now = new Date();
+
+            // Москва (GMT+3)
+            const moscowTime = new Date(now.getTime() + (now.getTimezoneOffset() + 3*60) * 60000);
+            updateClock('moscow', moscowTime);
+
+            // Пекин (GMT+8)
+            const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 8*60) * 60000);
+            updateClock('beijing', beijingTime);
+
+            // Нью-Йорк (GMT-4)
+            const newyorkTime = new Date(now.getTime() + (now.getTimezoneOffset() - 4*60) * 60000);
+            updateClock('newyork', newyorkTime);
+
+            // Лондон (GMT+1)
+            const londonTime = new Date(now.getTime() + (now.getTimezoneOffset() + 1*60) * 60000);
+            updateClock('london', londonTime);
+
+            requestAnimationFrame(updateTime);
+        }
+
+        function updateClock(id, date) {
+            // Форматирование времени
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const seconds = date.getSeconds().toString().padStart(2, '0');
+
+            document.getElementById(`${id}-time`).innerHTML =
+                `${hours}<span class="colon">:</span>${minutes}<span class="colon">:</span>${seconds}`;
+
+            // Форматирование даты
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            const dayOfWeek = days[date.getDay()];
+
+            document.getElementById(`${id}-date`).textContent =
+                `${day} ${month} ${year}, ${dayOfWeek}`;
+        }
+
+        // Запускаем обновление времени
+        updateTime();
     </script>
 </body>
 </html>
