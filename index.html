@@ -25,7 +25,6 @@
             --red-gradient-end: #C62828;
             --border-radius: 12px;
         }
-
         body {
             font-family: 'JetBrains Mono', monospace;
             background-color: var(--dark);
@@ -37,108 +36,89 @@
             display: flex;
             flex-direction: column;
         }
-
         .alert-card {
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary);
             background-color: #1E1E1E;
         }
-
         .alert-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(33, 150, 243, 0.2);
         }
-
         .alert-card.triggered {
             animation: pulse-alert 2s infinite;
         }
-
         @keyframes pulse-alert {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-
         .btn-primary {
             background-color: var(--primary);
             transition: all 0.3s ease;
             color: white;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             background-color: var(--secondary);
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(33, 150, 243, 0.3);
         }
-
         .price-up {
             color: var(--accent-green);
         }
-
         .price-down {
             color: var(--accent-red);
         }
-
         .search-highlight {
             background-color: rgba(33, 150, 243, 0.3);
             color: var(--light);
             padding: 0 2px;
             border-radius: 2px;
         }
-
         .pulse {
             animation: pulse 1.5s infinite;
         }
-
         @keyframes pulse {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-
         input, select {
             background-color: #2D2D2D;
             border: 1px solid #3D3D3D;
             color: var(--light);
             font-family: 'JetBrains Mono', monospace;
         }
-
         input:focus, select:focus {
             border-color: var(--primary);
             outline: none;
             box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
         }
-
         input[type="checkbox"] {
             accent-color: var(--primary);
         }
-
         .card {
             background-color: #1E1E1E;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            min-height: 600px; /* Увеличение минимальной высоты */
+            min-height: 600px;
         }
-
         nav {
             background-color: #1E1E1E;
             border-bottom: 1px solid #2D2D2D;
             width: 100%;
         }
-
         footer {
             background-color: #1E1E1E;
             border-top: 1px solid #2D2D2D;
             width: 100%;
         }
-
         .connection-status {
             display: flex;
             align-items: center;
             font-size: 0.875rem;
         }
-
         .status-dot {
             width: 12px;
             height: 12px;
@@ -146,7 +126,6 @@
             margin-right: 8px;
             position: relative;
         }
-
         .status-dot::before {
             content: '';
             position: absolute;
@@ -157,74 +136,58 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
-
         .status-connecting {
             background-color: #fbbf24;
         }
-
         .status-connecting::before {
             background-color: #fbbf24;
         }
-
         .status-connected {
             background-color: #22c55e;
         }
-
         .status-disconnected {
             background-color: #ef4444;
         }
-
         .status-error {
             background-color: #ef4444;
         }
-
         .alert-filter-btn {
             transition: all 0.2s ease;
         }
-
         .alert-filter-btn.active {
             background-color: var(--primary);
             color: white;
         }
-
         .alerts-container {
-            max-height: 700px; /* Увеличение максимальной высоты */
+            max-height: 700px;
             overflow-y: auto;
         }
-
         .alerts-container::-webkit-scrollbar {
             width: 6px;
         }
-
         .alerts-container::-webkit-scrollbar-track {
             background: #1E1E1E;
         }
-
         .alerts-container::-webkit-scrollbar-thumb {
             background: #444;
             border-radius: 3px;
         }
-
         .alerts-container::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
-
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
-
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-
         .compact-alerts-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-
         .compact-alerts-title {
             font-size: 1.25rem;
             font-weight: bold;
@@ -232,28 +195,24 @@
             white-space: nowrap;
             margin-right: 0.5rem;
         }
-
         .compact-filters {
             display: flex;
             gap: 0.25rem;
             overflow-x: auto;
             flex: 1;
         }
-
         .compact-filter-btn {
             padding: 0.25rem 0.5rem;
             font-size: 0.75rem;
             border-radius: 0.375rem;
             white-space: nowrap;
         }
-
         .compact-clear-btn {
             font-size: 0.75rem;
             color: var(--accent-red);
             white-space: nowrap;
             margin-left: 0.5rem;
         }
-
         .edit-modal {
             position: fixed;
             top: 0;
@@ -269,40 +228,34 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-
         .edit-modal.active {
             opacity: 1;
             pointer-events: all;
         }
-
         .edit-modal-content {
             background-color: #1E1E1E;
             border-radius: 8px;
             padding: 24px;
             width: 100%;
-            max-width: 600px; /* Увеличение максимальной ширины */
+            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
         }
-
         .alert-direction {
             font-size: 1.8rem;
             margin-left: 0.5rem;
             vertical-align: middle;
         }
-
         .alert-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
         }
-
         .alert-price {
             display: flex;
             align-items: center;
         }
-
         .spot-badge {
             background-color: var(--accent-orange);
             color: white;
@@ -311,7 +264,6 @@
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
-
         .futures-badge {
             background-color: var(--primary);
             color: white;
@@ -320,7 +272,6 @@
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
-
         .new-badge {
             background-color: var(--accent-green);
             color: white;
@@ -329,7 +280,6 @@
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
-
         .market-type-hint {
             position: absolute;
             right: 0.75rem;
@@ -337,7 +287,6 @@
             transform: translateY(-50%);
             pointer-events: none;
         }
-
         .current-price-container {
             display: flex;
             align-items: center;
@@ -348,16 +297,13 @@
             font-size: 0.875rem;
             background-color: rgba(30, 30, 30, 0.8);
         }
-
         .current-price-label {
             color: #6B7280;
         }
-
         .current-price-value {
             color: var(--primary);
             font-weight: 500;
         }
-
         .apply-price-btn {
             color: var(--primary);
             cursor: pointer;
@@ -367,50 +313,41 @@
             align-items: center;
             gap: 0.25rem;
         }
-
         .apply-price-btn:hover {
             color: var(--secondary);
         }
-
         .validation-error {
             border-color: var(--accent-red) !important;
         }
-
         .validation-message {
             color: var(--accent-red);
             font-size: 0.75rem;
             margin-top: 0.25rem;
             display: none;
         }
-
         .connection-status.connected .status-dot {
             background-color: #10B981;
             animation: pulse-green 1.5s infinite;
         }
-
         .connection-status.error .status-dot {
             background-color: #EF4444;
             animation: pulse-red 1.5s infinite;
         }
-
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
             70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
-
         @keyframes pulse-red {
             0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
             70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
             100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
-
         /* Tooltip styles */
         .tooltip {
             position: relative;
             display: inline-block;
         }
-
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 300px;
@@ -429,12 +366,10 @@
             font-size: 0.8rem;
             line-height: 1.4;
         }
-
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
-
         /* Notification methods styles */
         .notification-methods {
             display: flex;
@@ -442,13 +377,11 @@
             gap: 1rem;
             margin-top: 0.5rem;
         }
-
         .notification-method {
             display: flex;
             align-items: center;
             position: relative;
         }
-
         .telegram-hint {
             position: absolute;
             bottom: -20px;
@@ -456,13 +389,11 @@
             font-size: 0.75rem;
             color: #6B7280;
         }
-
         /* Menu styles */
         .menu-container {
             position: relative;
             display: inline-block;
         }
-
         .menu-button {
             background-color: transparent;
             color: white;
@@ -473,11 +404,9 @@
             display: flex;
             align-items: center;
         }
-
         .menu-button:hover {
             color: var(--primary);
         }
-
         .menu-content {
             display: none;
             position: absolute;
@@ -489,11 +418,9 @@
             border-radius: 4px;
             border: 1px solid #3D3D3D;
         }
-
         .menu-content.show {
             display: block;
         }
-
         .menu-item {
             color: white;
             padding: 12px 16px;
@@ -502,24 +429,20 @@
             text-align: left;
             transition: background-color 0.3s;
         }
-
         .menu-item:hover {
             background-color: #2D2D2D;
             color: var(--primary);
         }
-
         .menu-divider {
             height: 1px;
             background-color: #3D3D3D;
             margin: 4px 0;
         }
-
         .auth-buttons {
             display: flex;
             gap: 8px;
             margin-left: auto;
         }
-
         .auth-button {
             padding: 6px 12px;
             border-radius: 4px;
@@ -527,29 +450,24 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
         .login-button {
             background-color: transparent;
             color: white;
             border: 1px solid #3D3D3D;
         }
-
         .login-button:hover {
             background-color: rgba(33, 150, 243, 0.1);
             border-color: var(--primary);
         }
-
         .register-button {
             background-color: var(--primary);
             color: white;
             border: 1px solid var(--primary);
         }
-
         .register-button:hover {
             background-color: var(--secondary);
             border-color: var(--secondary);
         }
-
         /* History badge styles */
         .history-badge {
             background-color: #6B7280;
@@ -559,19 +477,16 @@
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
-
         /* Input group styles for login/register forms */
         .input-group {
             margin-bottom: 1rem;
         }
-
         .input-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: #6B7280;
             font-size: 0.875rem;
         }
-
         .input-group input {
             width: 100%;
             padding: 0.5rem 0.75rem;
@@ -580,13 +495,11 @@
             border: 1px solid #3D3D3D;
             color: white;
         }
-
         .input-group input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
         }
-
         /* Export button styles */
         .export-btn {
             background-color: var(--accent-green);
@@ -598,11 +511,9 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-
         .export-btn:hover {
             background-color: #1B5E20;
         }
-
         .reactivate-btn {
             background-color: var(--primary);
             color: white;
@@ -613,30 +524,24 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-
         .reactivate-btn:hover {
             background-color: var(--secondary);
         }
-
         .tab-content {
             display: none;
         }
-
         .tab-content.active {
             display: block;
         }
-
         /* Custom styles for long and short buttons */
         #showLongAlerts {
             background-color: #1B5E20;
             color: white;
         }
-
         #showShortAlerts {
             background-color: #C62828;
             color: white;
         }
-
         .alert-counter {
             background-color: rgba(33, 150, 243, 0.2);
             color: var(--primary);
@@ -645,7 +550,6 @@
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
-
         .total-alerts-counter {
             background-color: rgba(33, 150, 243, 0.2);
             color: var(--primary);
@@ -654,7 +558,6 @@
             font-size: 0.75rem;
             margin-left: 1rem;
         }
-
         /* New layout styles */
         .alerts-layout {
             display: grid;
@@ -664,13 +567,11 @@
             padding: 0 1rem;
             box-sizing: border-box;
         }
-
         @media (max-width: 1024px) {
             .alerts-layout {
                 grid-template-columns: 1fr;
             }
         }
-
         /* Full width adjustments */
         .main-container {
             width: 100%;
@@ -678,56 +579,48 @@
             margin: 0;
             flex: 1;
         }
-
         .content-wrapper {
             width: 100%;
             padding: 1rem;
             box-sizing: border-box;
         }
-
         nav .nav-container {
             width: 100%;
             padding: 0 1rem;
         }
-
         /* Dashboard styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         .dashboard-container {
             width: 100%;
             margin: 0 auto;
             padding: 15px;
             overflow: hidden;
         }
-
         .dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Увеличение минимальной ширины */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
             margin-top: 15px;
             width: 100%;
         }
-
         .panel {
-            background: #1E1E1E; /* Изменено с rgba(15, 18, 42, 0.9) */
+            background: #1E1E1E;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(92, 119, 255, 0.1);
-           transition: transform 0.3s ease, box-shadow 0.3s ease;
-           min-width: 300px;
-           min-height: 600px
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 300px;
+            min-height: 600px;
         }
-
         .panel:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
         }
-
         .panel-header {
             padding: 15px;
             font-size: 1.1rem;
@@ -736,36 +629,29 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .panel-header i {
             margin-right: 10px;
             font-size: 1.2rem;
         }
-
         .long .panel-header {
             background: linear-gradient(90deg, #0a7e3a, #1db954);
             color: white;
         }
-
         .short .panel-header {
             background: linear-gradient(90deg, #b71c1c, #f44336);
             color: white;
         }
-
         .long-wait .panel-header {
             background: linear-gradient(90deg, #0a7e3a, #1db954);
             color: white;
         }
-
         .short-wait .panel-header {
             background: linear-gradient(90deg, #b71c1c, #f44336);
             color: white;
         }
-
         .panel-content {
             padding: 15px;
         }
-
         .input-group {
             display: flex;
             margin-bottom: 20px;
@@ -774,21 +660,18 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             position: relative;
         }
-
         .ticker-input {
             flex-grow: 1;
-            padding: 15px; /* Увеличение внутреннего отступа */
+            padding: 15px;
             border: none;
             background: rgba(255, 255, 255, 0.08);
             color: white;
-            font-size: 1rem; /* Увеличение размера шрифта */
+            font-size: 1rem;
             outline: none;
         }
-
         .ticker-input::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
-
         .add-btn {
             padding: 0 20px;
             border: none;
@@ -798,92 +681,75 @@
             transition: all 0.2s ease;
             flex-shrink: 0;
         }
-
         .long .add-btn {
             background: #1db954;
             color: white;
         }
-
         .short .add-btn {
             background: #f44336;
             color: white;
         }
-
         .long-wait .add-btn {
             background: #1db954;
             color: white;
         }
-
         .short-wait .add-btn {
             background: #f44336;
             color: white;
         }
-
         .add-btn:hover {
             filter: brightness(1.15);
         }
-
         .ticker-list {
             list-style: none;
-            max-height: 700px; /* Увеличение максимальной высоты */
+            max-height: 700px;
             overflow-y: auto;
             padding-right: 5px;
         }
-
         .ticker-list::-webkit-scrollbar {
             width: 6px;
         }
-
         .ticker-list::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-
         .ticker-list::-webkit-scrollbar-thumb {
             background: rgba(92, 119, 255, 0.5);
             border-radius: 10px;
         }
-
         .ticker-item {
             display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px;
-    margin-bottom: 12px;
-    background: #2D2D2D; /* Более темный фон для элементов */
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border-left: 4px solid;
-    cursor: pointer;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            margin-bottom: 12px;
+            background: #2D2D2D;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+            cursor: pointer;
         }
-
         .long .ticker-item {
             border-left-color: #1db954;
         }
-
         .short .ticker-item {
             border-left-color: #f44336;
         }
-
         .long-wait .ticker-item {
             border-left-color: #1db954;
         }
-
         .short-wait .ticker-item {
             border-left-color: #f44336;
         }
-
         .ticker-item:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateX(5px);
         }
-
         .ticker-info {
             flex: 1 1 70%;
             min-width: 0;
         }
-
         .ticker-name {
             font-weight: 600;
             font-size: 1.1rem;
@@ -894,20 +760,17 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         .price-info {
             font-size: 0.9rem;
             color: #a0a0d0;
             display: flex;
             flex-direction: column;
         }
-
         .price-value {
             display: flex;
             align-items: center;
             white-space: nowrap;
         }
-
         .price-change {
             margin-left: 10px;
             font-weight: 500;
@@ -915,29 +778,24 @@
             border-radius: 4px;
             font-size: 0.8rem;
         }
-
         .added-date {
             font-size: 0.75rem;
             color: #ffffff;
             margin-top: 5px;
             font-weight: 500;
         }
-
         .positive {
             background: rgba(29, 185, 84, 0.2);
             color: #1db954;
         }
-
         .negative {
             background: rgba(244, 67, 54, 0.2);
             color: #f44336;
         }
-
         .neutral {
             background: rgba(255, 255, 255, 0.1);
             color: #a0a0d0;
         }
-
         .action-buttons {
             display: flex;
             flex: 1 1 30%;
@@ -945,7 +803,6 @@
             gap: 8px;
             flex-wrap: wrap;
         }
-
         .action-btn {
             width: 32px;
             height: 32px;
@@ -959,65 +816,54 @@
             border: none;
             flex-shrink: 0;
         }
-
         .delete-btn {
             background: rgba(244, 67, 54, 0.2);
             color: #f44336;
         }
-
         .delete-btn:hover {
             background: rgba(244, 67, 54, 0.3);
             transform: scale(1.1);
         }
-
         .copy-btn {
             background: rgba(67, 160, 71, 0.2);
             color: #43a047;
         }
-
         .copy-btn:hover {
             background: rgba(67, 160, 71, 0.3);
             transform: scale(1.1);
         }
-
         .move-btn {
             background: rgba(92, 119, 255, 0.2);
             color: #5c77ff;
         }
-
         .move-btn:hover {
             background: rgba(92, 119, 255, 0.3);
             transform: scale(1.1);
         }
-
         .star-rating {
             display: flex;
             margin-left: 8px;
         }
-
         .star {
             color: #ffc107;
             cursor: pointer;
             font-size: 0.85rem;
             margin-right: 2px;
         }
-
         .stats-bar {
-           display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    background: #1E1E1E; /* Изменено с rgba(15, 18, 42, 0.9) */
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 20px;
-    border: 1px solid rgba(92, 119, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            background: #1E1E1E;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid rgba(92, 119, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-value {
             font-size: 1.4rem;
             font-weight: 700;
@@ -1025,20 +871,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .stat-label {
             font-size: 0.8rem;
             color: #a0a0d0;
             margin-top: 5px;
         }
-
         .error-message {
             color: #f44336;
             font-size: 0.75rem;
             margin-top: 5px;
             display: none;
         }
-
         .modal {
             display: none;
             position: fixed;
@@ -1051,7 +894,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .modal-content {
             background: #1a1a2e;
             padding: 20px;
@@ -1060,13 +902,11 @@
             max-width: 400px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
-
         .modal-title {
             font-size: 1.2rem;
             margin-bottom: 15px;
             color: #fff;
         }
-
         .modal-input {
             width: 100%;
             padding: 10px;
@@ -1076,30 +916,25 @@
             color: white;
             border-radius: 5px;
         }
-
         .modal-buttons {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
         }
-
         .modal-btn {
             padding: 8px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-
         .modal-btn-cancel {
             background: #f44336;
             color: white;
         }
-
         .modal-btn-confirm {
             background: #1db954;
             color: white;
         }
-
         /* Ticker suggestions dropdown */
         .suggestions-dropdown {
             position: absolute;
@@ -1114,7 +949,6 @@
             display: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-
         .suggestion-item {
             padding: 10px 15px;
             cursor: pointer;
@@ -1122,15 +956,12 @@
             display: flex;
             justify-content: space-between;
         }
-
         .suggestion-item:hover {
             background-color: #3a3a4a;
         }
-
         .suggestion-ticker {
             font-weight: 500;
         }
-
         .suggestion-type {
             font-size: 0.75rem;
             color: #aaa;
@@ -1138,15 +969,12 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
-
         .spot-type {
             color: #4caf50;
         }
-
         .futures-type {
             color: #2196f3;
         }
-
         /* Clear all button */
         .clear-all-btn {
             background: rgba(255, 255, 255, 0.1);
@@ -1159,11 +987,9 @@
             transition: all 0.2s;
             white-space: nowrap;
         }
-
         .clear-all-btn:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-
         /* Day divider */
         .day-divider {
             color: #a0a0d0;
@@ -1175,107 +1001,85 @@
             margin: 8px 0;
             text-align: center;
         }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
-
             .panel {
                 min-width: auto;
             }
-
             .stats-bar {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .ticker-item {
                 flex-direction: row;
                 flex-wrap: wrap;
             }
-
             .ticker-info {
                 flex: 1 1 100%;
                 margin-bottom: 10px;
             }
-
             .price-info {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
-
             .added-date {
                 margin-top: 0;
                 margin-left: 10px;
             }
-
             .action-buttons {
                 flex: 1 1 100%;
                 justify-content: flex-end;
                 margin-top: 8px;
             }
-
             .panel-header {
                 font-size: 1rem;
                 padding: 12px;
             }
-
             .panel-header i {
                 font-size: 1rem;
             }
-
             .ticker-input {
                 padding: 10px 12px;
                 font-size: 0.9rem;
             }
-
             .add-btn {
                 padding: 0 15px;
                 font-size: 1rem;
             }
         }
-
         @media (max-width: 480px) {
             .stats-bar {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .stat-value {
                 font-size: 1.2rem;
             }
-
             .stat-label {
                 font-size: 0.7rem;
             }
-
             .modal-content {
                 padding: 15px;
             }
-
             .modal-title {
                 font-size: 1.1rem;
             }
-
             .ticker-item {
                 padding: 10px;
             }
-
             .action-btn {
                 width: 28px;
                 height: 28px;
                 font-size: 0.85rem;
             }
-
             .ticker-name {
                 font-size: 1rem;
             }
-
             .price-value {
                 font-size: 0.85rem;
             }
-
             .added-date {
                 font-size: 0.7rem;
             }
@@ -1539,7 +1343,6 @@
                     <ul class="ticker-list" id="long-list"></ul>
                 </div>
             </div>
-
             <!-- Short Panel -->
             <div class="panel short">
                 <div class="panel-header">
@@ -1559,7 +1362,6 @@
                     <ul class="ticker-list" id="short-list"></ul>
                 </div>
             </div>
-
             <!-- Long Wait Panel -->
             <div class="panel long-wait">
                 <div class="panel-header">
@@ -1579,7 +1381,6 @@
                     <ul class="ticker-list" id="long-wait-list"></ul>
                 </div>
             </div>
-
             <!-- Short Wait Panel -->
             <div class="panel short-wait">
                 <div class="panel-header">
@@ -1600,7 +1401,6 @@
                 </div>
             </div>
         </div>
-
         <div class="stats-bar">
             <div class="stat-item">
                 <div class="stat-value" id="total-tickers">0</div>
@@ -1780,7 +1580,6 @@
             },
             PRICE_COMPARISON_EPSILON: 0.00000001 // Точность сравнения цен
         };
-
         // Конфигурация Telegram - ваш токен бота
         const TG_BOT_TOKEN = '8044055704:AAGk8cQFayPqYCscLlEB3qGRj0Uw_NTpe30';
         let allFutures = [];
@@ -1790,7 +1589,6 @@
         let alertCooldowns = {};
         let apiManager;
         let activeTriggeredAlerts = {};
-
         // Объект для хранения данных о тикерах
         const tickersData = {
             'long': {},
@@ -1798,16 +1596,13 @@
             'long-wait': {},
             'short-wait': {}
         };
-
         // Переменные для модальных окон
         const priceModal = document.getElementById('priceModal');
         const modalTicker = document.getElementById('modalTicker');
         const priceInput = document.getElementById('priceInput');
         const changeInput = document.getElementById('changeInput');
-
         let currentTicker = '';
         let currentListType = '';
-
         // Кэш для популярных тикеров
         const popularTickers = {
             'BTCUSDT': { name: 'Bitcoin', type: 'spot' },
@@ -1836,48 +1631,39 @@
             'ATOMUSDT.P': { name: 'Cosmos Futures', type: 'futures' },
             'UNIUSDT.P': { name: 'Uniswap Futures', type: 'futures' }
         };
-
         // Функции для работы с пользователями
         function isValidEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
-
         function handleRegister() {
             const email = document.getElementById('registerEmail').value.trim();
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('registerConfirmPassword')?.value;
-
             // Валидация полей
             if (!email || !password || !confirmPassword) {
                 showNotification('Ошибка', 'Все поля обязательны для заполнения');
                 return;
             }
-
             if (!isValidEmail(email)) {
                 showNotification('Ошибка', 'Введите корректный email');
                 return;
             }
-
             if (password.length < 8) {
                 showNotification('Ошибка', 'Пароль должен содержать минимум 8 символов');
                 return;
             }
-
             if (password !== confirmPassword) {
                 showNotification('Ошибка', 'Пароли не совпадают');
                 return;
             }
-
             // Проверяем, есть ли уже такой пользователь
             const users = JSON.parse(localStorage.getItem('users') || '[]');
             const userExists = users.some(user => user.email === email);
-
             if (userExists) {
                 showNotification('Ошибка', 'Пользователь с таким email уже зарегистрирован');
                 return;
             }
-
             // Создаем нового пользователя
             const newUser = {
                 email: email,
@@ -1885,55 +1671,45 @@
                 createdAt: new Date().toISOString(),
                 alerts: []
             };
-
             // Сохраняем пользователя
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
             localStorage.setItem('currentUser', JSON.stringify({ email: email }));
             showNotification('Успех', 'Регистрация прошла успешно!');
             closeRegisterModal();
-
             // Обновляем интерфейс для зарегистрированного пользователя
             updateUserUI(email);
         }
-
         function handleLogin() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
-
             if (!email || !password) {
                 showNotification('Ошибка', 'Введите email и пароль');
                 return;
             }
-
             const users = JSON.parse(localStorage.getItem('users') || '[]');
             const user = users.find(u => u.email === email && atob(u.password) === password);
-
             if (!user) {
                 showNotification('Ошибка', 'Неверный email или пароль');
                 return;
             }
-
             localStorage.setItem('currentUser', JSON.stringify({ email: email }));
             showNotification('Успех', 'Вход выполнен успешно!');
             closeLoginModal();
             updateUserUI(email);
         }
-
         function handleLogout() {
             localStorage.removeItem('currentUser');
             showNotification('Успех', 'Вы успешно вышли из системы');
             updateUserUI(null);
             toggleMenu();
         }
-
         function updateUserUI(email) {
             const userProfileBtn = document.getElementById('userProfileBtn');
             const userName = document.getElementById('userName');
             const loginMenuItem = document.getElementById('loginMenuItem');
             const registerMenuItem = document.getElementById('registerMenuItem');
             const logoutMenuItem = document.getElementById('logoutMenuItem');
-
             if (email) {
                 // Пользователь авторизован
                 if (userProfileBtn) userProfileBtn.classList.remove('hidden');
@@ -1949,7 +1725,6 @@
                 if (logoutMenuItem) logoutMenuItem.classList.add('hidden');
             }
         }
-
         // Функция для сохранения сработавшего алерта в историю
         function saveTriggeredAlert(alert) {
             const history = JSON.parse(localStorage.getItem('triggeredAlertsHistory') || '[]');
@@ -1959,12 +1734,10 @@
             });
             localStorage.setItem('triggeredAlertsHistory', JSON.stringify(history));
         }
-
         // Функция для загрузки истории сработавших алертов
         function loadTriggeredAlerts() {
             return JSON.parse(localStorage.getItem('triggeredAlertsHistory') || '[]');
         }
-
         // Сохраняем состояние приложения
         function saveAppState() {
             try {
@@ -1986,7 +1759,6 @@
                 return false;
             }
         }
-
         // Загружаем состояние приложения
         function loadAppState() {
             try {
@@ -1995,13 +1767,11 @@
                 if (savedAlerts) {
                     userAlerts = JSON.parse(savedAlerts);
                 }
-
                 // Загружаем фильтр
                 const savedFilter = localStorage.getItem('alertFilter');
                 if (savedFilter) {
                     currentAlertFilter = savedFilter;
                 }
-
                 // Загружаем настройки Telegram
                 const tgSettings = JSON.parse(localStorage.getItem('tgSettings') || '{}');
                 if (tgSettings.chatId) {
@@ -2012,14 +1782,12 @@
                         userChatId.classList.remove('hidden');
                     }
                 }
-
                 if (tgSettings.enabled !== undefined) {
                     const telegramCheckbox = document.getElementById('telegram');
                     if (telegramCheckbox) {
                         telegramCheckbox.checked = tgSettings.enabled;
                     }
                 }
-
                 console.log("Состояние загружено");
                 return true;
             } catch (error) {
@@ -2027,7 +1795,6 @@
                 return false;
             }
         }
-
         class BinanceAPIManager {
             constructor() {
                 this.connectionState = {
@@ -2037,44 +1804,36 @@
                     error: null
                 };
             }
-
             async init() {
                 await this.checkAPIConnection();
                 this.startHealthCheck();
             }
-
             async checkAPIConnection() {
                 try {
                     const response = await this._fetchWithTimeout(
                         API_CONFIG.ENDPOINTS.TEST,
                         { method: 'GET' }
                     );
-
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
                     this._updateConnectionState({
                         connected: true,
                         retries: 0,
                         error: null
                     });
-
                     return true;
                 } catch (error) {
                     this._handleConnectionError(error);
                     return false;
                 }
             }
-
             async _fetchWithTimeout(url, options = {}) {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.TIMEOUT);
-
                 try {
                     const response = await fetch(url, {
                         ...options,
                         signal: controller.signal
                     });
-
                     clearTimeout(timeoutId);
                     return response;
                 } catch (error) {
@@ -2082,32 +1841,26 @@
                     throw error;
                 }
             }
-
             _updateConnectionState(stateUpdate) {
                 this.connectionState = {
                     ...this.connectionState,
                     ...stateUpdate,
                     lastCheck: new Date().toISOString()
                 };
-
                 this._updateUIStatus();
             }
-
             _handleConnectionError(error) {
                 const newRetries = this.connectionState.retries + 1;
                 const fatal = newRetries >= API_CONFIG.MAX_RETRIES;
-
                 this._updateConnectionState({
                     connected: false,
                     retries: newRetries,
                     error: fatal ? 'Fatal connection error' : error.message
                 });
-
                 if (!fatal) {
                     setTimeout(() => this.checkAPIConnection(), API_CONFIG.RECONNECT_INTERVAL);
                 }
             }
-
             startHealthCheck() {
                 setInterval(() => {
                     if (!this.connectionState.connected) {
@@ -2115,16 +1868,12 @@
                     }
                 }, 30000);
             }
-
             _updateUIStatus() {
                 const statusElement = document.getElementById('connectionStatus');
                 if (!statusElement) return;
-
                 const dotElement = statusElement.querySelector('.status-dot');
                 const textElement = statusElement.querySelector('span');
-
                 if (!dotElement || !textElement) return;
-
                 if (this.connectionState.connected) {
                     statusElement.classList.add('connected');
                     statusElement.classList.remove('error');
@@ -2139,24 +1888,19 @@
                     textElement.textContent = `Connection error: ${this.connectionState.error || 'Unknown error'} [Retry ${this.connectionState.retries}/${API_CONFIG.MAX_RETRIES}]`;
                 }
             }
-
             async getCurrentPrice(symbol, marketType) {
                 try {
                     const endpoint = marketType === 'futures'
                         ? `${API_CONFIG.ENDPOINTS.FUTURES}/fapi/v1/ticker/price?symbol=${symbol}`
                         : `${API_CONFIG.ENDPOINTS.SPOT}/api/v3/ticker/price?symbol=${symbol}`;
-
                     const response = await this._fetchWithTimeout(endpoint);
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
                     const data = await response.json();
-
                     // Валидация ответа API
                     if (!data || typeof data.price !== 'string') {
                         console.error('Invalid price data:', data);
                         return null;
                     }
-
                     const price = parseFloat(data.price);
                     return isNaN(price) ? null : price;
                 } catch (error) {
@@ -2165,60 +1909,46 @@
                 }
             }
         }
-
         // Улучшенная функция сравнения цен
         function comparePrices(currentPrice, condition, targetPrice) {
             const epsilon = API_CONFIG.PRICE_COMPARISON_EPSILON;
-
             // Форматируем числа для точного сравнения
             const cp = parseFloat(currentPrice.toFixed(8));
             const tp = parseFloat(targetPrice.toFixed(8));
-
             if (condition === '>') {
                 return cp - tp > epsilon;
             } else if (condition === '<') {
                 return tp - cp > epsilon;
             }
-
             return false;
         }
-
         async function checkAlerts() {
             const now = Date.now();
-
             for (const alert of userAlerts.filter(a => !a.triggered)) {
                 try {
                     // Всегда получаем свежую цену, без кеширования
                     const price = await apiManager.getCurrentPrice(alert.symbol, alert.marketType);
                     if (price === null) continue;
-
                     // Безопасное сравнение цен
                     const conditionMet = comparePrices(price, alert.condition, alert.value);
-
                     if (conditionMet) {
                         const cooldownKey = `${alert.symbol}_${alert.condition}_${alert.value}`;
                         const lastNotification = alertCooldowns[cooldownKey] || 0;
-
                         if (now - lastNotification > 30000) { // 30 секунд кд
                             // Логируем детали срабатывания для отладки
                             console.log(`Alert triggered: ${alert.symbol} ${alert.condition} ${alert.value} | Current: ${price} | Time: ${new Date().toISOString()}`);
-
                             // Отправка уведомлений и обработка срабатывания
                             await handleTriggeredAlert(alert, price);
-
                             alertCooldowns[cooldownKey] = now;
                             activeTriggeredAlerts[alert.id] = true;
-
                             setTimeout(() => {
                                 delete activeTriggeredAlerts[alert.id];
                                 loadUserAlerts(currentAlertFilter);
                             }, 5000);
-
                             if (alert.notificationCount > 0 && alert.triggeredCount >= alert.notificationCount) {
                                 alert.triggered = true;
                                 console.log(`Alert ${alert.id} reached notification limit`);
                             }
-
                             saveTriggeredAlert(alert);
                             saveAppState();
                             loadUserAlerts(currentAlertFilter);
@@ -2229,13 +1959,11 @@
                 }
             }
         }
-
         // Новая функция для обработки сработавшего алерта
         async function handleTriggeredAlert(alert, currentPrice) {
             const message = `🚨 Алерт сработал!\nСимвол: ${alert.symbol}\n` +
                             `Условие: ${alert.condition} ${alert.value}\n` +
                             `Текущая цена: ${formatNumber(currentPrice, 8)}`;
-
             // Отправка в Telegram
             if (alert.notificationMethods.includes('telegram') && alert.chatId) {
                 try {
@@ -2245,19 +1973,16 @@
                     console.error('Failed to send Telegram alert:', error);
                 }
             }
-
             // Показываем уведомление в интерфейсе
             showNotification('Алерт сработал',
                 `Символ: ${alert.symbol}\n` +
                 `Условие: ${alert.condition} ${alert.value}\n` +
                 `Текущая цена: ${formatNumber(currentPrice, 8)}`);
         }
-
         // Функция для форматирования чисел
         function formatNumber(num, decimals) {
             return parseFloat(num.toFixed(decimals));
         }
-
         // Функция для отправки уведомлений в Telegram
         async function sendTelegramNotification(message, chatId) {
             try {
@@ -2272,48 +1997,37 @@
                         parse_mode: 'Markdown'
                     })
                 });
-
                 const data = await response.json();
-
                 if (!data.ok) {
                     console.error('Ошибка отправки в Telegram:', data);
                     return false;
                 }
-
                 return true;
             } catch (error) {
                 console.error('Ошибка отправки сообщения:', error);
                 return false;
             }
         }
-
         // Функция для экспорта всех активных алертов в Telegram
         async function exportAllActiveAlerts() {
             const chatId = localStorage.getItem('tg_chat_id');
-
             if (!chatId) {
                 showBotConnectionHint();
                 return;
             }
-
             const activeAlerts = userAlerts.filter(alert => !alert.triggered);
-
             if (activeAlerts.length === 0) {
                 showNotification('Ошибка', 'Нет активных алертов для экспорта');
                 return;
             }
-
             // Формируем сообщение
             let message = '📋 Список активных алертов:\n\n';
-
             activeAlerts.forEach((alert, index) => {
                 message += `${index + 1}. ${alert.symbol} ${alert.condition} ${alert.value}\n`;
                 message += `Тип: ${alert.type} | Уведомлений: ${alert.notificationCount === 0 ? '∞' : alert.notificationCount}\n\n`;
             });
-
             try {
                 const success = await sendTelegramNotification(message, chatId);
-
                 if (success) {
                     showNotification('Успешно', 'Все активные алерты экспортированы в Telegram');
                 } else {
@@ -2324,14 +2038,11 @@
                 showNotification('Ошибка', 'Произошла ошибка при экспорте');
             }
         }
-
         function applyCurrentPrice() {
             const currentPriceValue = document.getElementById('currentPriceValue');
             if (!currentPriceValue) return;
-
             const priceText = currentPriceValue.textContent;
             const price = parseFloat(priceText);
-
             if (!isNaN(price)) {
                 const valueInput = document.getElementById('value');
                 if (valueInput) {
@@ -2340,14 +2051,11 @@
                 }
             }
         }
-
         function applyCurrentPriceForEdit() {
             const currentPriceValue = document.getElementById('editCurrentPriceValue');
             if (!currentPriceValue) return;
-
             const priceText = currentPriceValue.textContent;
             const price = parseFloat(priceText);
-
             if (!isNaN(price)) {
                 const valueInput = document.getElementById('editValue');
                 if (valueInput) {
@@ -2356,67 +2064,50 @@
                 }
             }
         }
-
         function getMarketTypeBySymbol(symbol) {
             const futuresMatch = allFutures.find(c => c.symbol === symbol);
             if (futuresMatch) return 'futures';
-
             const spotMatch = allSpot.find(c => c.symbol === symbol);
             if (spotMatch) return 'spot';
-
             return null;
         }
-
         function showValidationError(fieldId, message) {
             const field = document.getElementById(fieldId);
             const errorElement = document.getElementById(`${fieldId}Error`);
-
             if (!field || !errorElement) return;
-
             field.classList.add('validation-error');
             errorElement.textContent = message;
             errorElement.style.display = 'block';
         }
-
         function hideValidationError(fieldId) {
             const field = document.getElementById(fieldId);
             const errorElement = document.getElementById(`${fieldId}Error`);
-
             if (!field || !errorElement) return;
-
             field.classList.remove('validation-error');
             errorElement.style.display = 'none';
         }
-
         function validateForm() {
             let isValid = true;
-
             // Проверка подключения к боту если Telegram выбран
             const telegramCheckbox = document.getElementById('telegram');
-
             if (telegramCheckbox && telegramCheckbox.checked) {
                 const chatId = localStorage.getItem('tg_chat_id') || document.getElementById('userChatId')?.value;
-
                 if (!chatId) {
                     showBotConnectionHint();
                     isValid = false;
                 }
             }
-
             // Проверка криптовалюты
             const coinSearch = document.getElementById('coinSearch');
             const symbol = document.getElementById('symbol');
-
             if (!coinSearch || !symbol || !coinSearch.value.trim() || !symbol.value) {
                 showValidationError('coinSearch', 'Пожалуйста, выберите криптовалюту');
                 isValid = false;
             } else {
                 hideValidationError('coinSearch');
             }
-
             // Проверка значения
             const value = document.getElementById('value');
-
             if (!value || !value.value.trim()) {
                 showValidationError('value', 'Пожалуйста, укажите значение');
                 isValid = false;
@@ -2426,23 +2117,18 @@
             } else {
                 hideValidationError('value');
             }
-
             // Валидация Telegram Chat ID
             if (telegramCheckbox && telegramCheckbox.checked) {
                 const userChatId = document.getElementById('userChatId');
-
                 if (!userChatId || !userChatId.value.trim()) {
                     showValidationError('userChatId', 'Пожалуйста, укажите Telegram Chat ID');
                     isValid = false;
                 }
             }
-
             // Валидация email
             const emailCheckbox = document.getElementById('email');
-
             if (emailCheckbox && emailCheckbox.checked) {
                 const userEmail = document.getElementById('userEmail');
-
                 if (!userEmail || !userEmail.value.trim()) {
                     showValidationError('userEmail', 'Пожалуйста, укажите email');
                     isValid = false;
@@ -2453,16 +2139,12 @@
                     hideValidationError('userEmail');
                 }
             }
-
             return isValid;
         }
-
         function validateEditForm() {
             let isValid = true;
-
             // Проверка значения
             const value = document.getElementById('editValue');
-
             if (!value || !value.value.trim()) {
                 showValidationError('editValue', 'Пожалуйста, укажите значение');
                 isValid = false;
@@ -2472,10 +2154,8 @@
             } else {
                 hideValidationError('editValue');
             }
-
             return isValid;
         }
-
         async function loadMarketData() {
             try {
                 // Проверяем соединение перед загрузкой данных
@@ -2485,11 +2165,9 @@
                         throw new Error('No connection to Binance API');
                     }
                 }
-
                 // Загрузка фьючерсных данных
                 const futuresResponse = await fetch('https://fapi.binance.com/fapi/v1/exchangeInfo');
                 if (!futuresResponse.ok) throw new Error(`Futures API error: ${futuresResponse.status}`);
-
                 const futuresData = await futuresResponse.json();
                 allFutures = futuresData.symbols
                     .filter(s => s.contractType === 'PERPETUAL' && s.quoteAsset === 'USDT')
@@ -2500,11 +2178,9 @@
                         contractType: symbol.contractType,
                         marketType: 'futures'
                     }));
-
                 // Загрузка спотовых данных
                 const spotResponse = await fetch('https://api.binance.com/api/v3/exchangeInfo');
                 if (!spotResponse.ok) throw new Error(`Spot API error: ${spotResponse.status}`);
-
                 const spotData = await spotResponse.json();
                 allSpot = spotData.symbols
                     .filter(s => s.quoteAsset === 'USDT' || s.quoteAsset === 'BTC' || s.quoteAsset === 'ETH' || s.quoteAsset === 'BNB')
@@ -2514,53 +2190,41 @@
                         quoteAsset: symbol.quoteAsset,
                         marketType: 'spot'
                     }));
-
                 updateCoinSelect();
             } catch (error) {
                 console.error('Error loading market data:', error);
                 apiManager._handleConnectionError(error);
             }
         }
-
         function showNotification(title, message) {
             const modal = document.getElementById('notificationModal');
             const notificationTitle = document.getElementById('notificationTitle');
             const notificationMessage = document.getElementById('notificationMessage');
-
             if (!modal || !notificationTitle || !notificationMessage) return;
-
             notificationTitle.textContent = title;
             notificationMessage.textContent = message;
             modal.classList.remove('hidden');
-
             setTimeout(() => {
                 modal.classList.add('hidden');
             }, 5000);
         }
-
         function updateCoinSelect() {
             const coinSearch = document.getElementById('coinSearch');
             const coinSelect = document.getElementById('symbol');
-
             if (!coinSearch || !coinSelect) return;
-
             const searchTerm = coinSearch.value.toLowerCase();
             const allMarketData = [...allFutures, ...allSpot];
             const filteredCoins = allMarketData.filter(coin =>
                 coin.symbol.toLowerCase().includes(searchTerm) ||
                 coin.baseAsset.toLowerCase().includes(searchTerm)
             );
-
             const limitedCoins = filteredCoins.slice(0, 100);
-
             coinSelect.innerHTML = limitedCoins.map(coin => {
                 const badge = coin.marketType === 'spot' ?
                     '<span class="spot-badge">SPOT</span>' :
                     '<span class="futures-badge">FUTURES</span>';
-
                 return `<option value="${coin.symbol}" data-market-type="${coin.marketType}">${coin.symbol} ${badge}</option>`;
             }).join('');
-
             if (searchTerm) {
                 coinSelect.classList.remove('hidden');
                 coinSelect.size = Math.min(limitedCoins.length, 5);
@@ -2568,58 +2232,46 @@
                 coinSelect.classList.add('hidden');
             }
         }
-
         async function createAlertForSymbol(symbol, currentPrice) {
             const coinSearch = document.getElementById('coinSearch');
             const symbolInput = document.getElementById('symbol');
             const valueInput = document.getElementById('value');
             const hint = document.getElementById('marketTypeHint');
-
             if (!coinSearch || !symbolInput || !valueInput || !hint) return;
-
             coinSearch.value = symbol;
             const marketType = getMarketTypeBySymbol(symbol);
             const badge = marketType === 'spot' ?
                 '<span class="spot-badge">SPOT</span>' :
                 '<span class="futures-badge">FUTURES</span>';
-
             hint.innerHTML = badge;
             symbolInput.value = symbol;
             valueInput.value = currentPrice;
             symbolInput.classList.add('hidden');
-
             // Скрываем ошибки валидации при выборе из списка
             hideValidationError('coinSearch');
             hideValidationError('value');
-
             // Получаем текущую цену и показываем её
             const currentPriceValue = await apiManager.getCurrentPrice(symbol, marketType);
-
             if (currentPriceValue !== null) {
                 const currentPriceContainer = document.getElementById('currentPriceContainer');
                 const currentPriceValueElement = document.getElementById('currentPriceValue');
-
                 if (currentPriceContainer && currentPriceValueElement) {
                     currentPriceValueElement.textContent = currentPriceValue;
                     currentPriceContainer.classList.remove('hidden');
                 }
             }
         }
-
         async function addUserAlert(symbol, type, condition, value, notificationMethods, notificationCount, chatId) {
             try {
                 // Проверяем наличие подключения для Telegram
                 if (notificationMethods.includes('telegram')) {
                     const savedChatId = localStorage.getItem('tg_chat_id') || chatId;
-
                     if (!savedChatId) {
                         showBotConnectionHint();
                         return false;
                     }
                 }
-
                 const marketType = getMarketTypeBySymbol(symbol);
-
                 const newAlert = {
                     id: Date.now(),
                     symbol,
@@ -2635,13 +2287,10 @@
                     lastNotificationTime: 0,
                     marketType
                 };
-
                 userAlerts.push(newAlert);
                 saveAppState();
-
                 // Обновляем список алертов сразу после добавления
                 loadUserAlerts(currentAlertFilter);
-
                 return true;
             } catch (error) {
                 console.error("Ошибка при добавлении алерта:", error);
@@ -2649,46 +2298,35 @@
                 return false;
             }
         }
-
         function loadUserAlerts(filter = 'active') {
             const longAlertsContainer = document.getElementById('longAlerts');
             const shortAlertsContainer = document.getElementById('shortAlerts');
-
             if (!longAlertsContainer || !shortAlertsContainer) return;
-
             currentAlertFilter = filter;
             saveAppState();
-
             document.querySelectorAll('.compact-filter-btn').forEach(btn => {
                 btn.classList.remove('bg-blue-900', 'text-blue-300');
                 btn.classList.add('bg-gray-700', 'text-gray-300');
             });
-
             const activeBtn = document.getElementById(`show${filter.charAt(0).toUpperCase() + filter.slice(1)}Alerts`);
-
             if (activeBtn) {
                 activeBtn.classList.add('bg-blue-900', 'text-blue-300');
                 activeBtn.classList.remove('bg-gray-700', 'text-gray-300');
             }
-
             let filteredAlerts = [];
-
             if (filter === 'history') {
                 filteredAlerts = loadTriggeredAlerts();
-
                 if (filteredAlerts.length === 0) {
                     longAlertsContainer.innerHTML = `
                         <div class="text-center text-gray-400 py-4">
                             История срабатываний пуста
                         </div>
                     `;
-
                     shortAlertsContainer.innerHTML = `
                         <div class="text-center text-gray-400 py-4">
                             История срабатываний пуста
                         </div>
                     `;
-
                     return;
                 }
             } else {
@@ -2703,10 +2341,8 @@
                         filteredAlerts = [...userAlerts];
                         break;
                 }
-
                 if (filteredAlerts.length === 0) {
                     let message = '';
-
                     switch(filter) {
                         case 'active':
                             message = 'У вас пока нет активных алертов';
@@ -2718,39 +2354,32 @@
                             message = 'У вас пока нет алертов';
                             break;
                     }
-
                     longAlertsContainer.innerHTML = `
                         <div class="text-center text-gray-400 py-4">
                             ${message}
                         </div>
                     `;
-
                     shortAlertsContainer.innerHTML = `
                         <div class="text-center text-gray-400 py-4">
                             ${message}
                         </div>
                     `;
-
                     return;
                 }
             }
-
             filteredAlerts.sort((a, b) => {
                 const dateA = a.triggeredAt || a.createdAt;
                 const dateB = b.triggeredAt || b.createdAt;
                 return new Date(dateB) - new Date(dateA);
             });
-
             let longHtml = '';
             let shortHtml = '';
-
             filteredAlerts.forEach(alert => {
                 const date = new Date(alert.triggeredAt || alert.createdAt);
                 const isTriggered = alert.triggered || filter === 'history';
                 const isUp = alert.condition === '>';
                 const isHistory = filter === 'history';
                 const isActiveTriggered = activeTriggeredAlerts[alert.id] && !isHistory;
-
                 const alertHtml = `
                     <div id="alert-${alert.id}" class="alert-card rounded-md p-4 shadow-sm ${isActiveTriggered ? 'triggered' : ''}">
                         <div class="flex justify-between items-start">
@@ -2807,44 +2436,36 @@
                         </div>
                     </div>
                 `;
-
                 if (isUp) {
                     longHtml += alertHtml;
                 } else {
                     shortHtml += alertHtml;
                 }
             });
-
             longAlertsContainer.innerHTML = longHtml || `
                 <div class="text-center text-gray-400 py-4">
                     Нет лонг алертов
                 </div>
             `;
-
             shortAlertsContainer.innerHTML = shortHtml || `
                 <div class="text-center text-gray-400 py-4">
                     Нет шорт алертов
                 </div>
             `;
-
             // Обновляем счетчики алертов
             updateAlertsCounter();
         }
-
         function updateAlertsCounter() {
             const activeLongAlertsCount = userAlerts.filter(alert => !alert.triggered && alert.condition === '>').length;
             const activeShortAlertsCount = userAlerts.filter(alert => !alert.triggered && alert.condition === '<').length;
             const totalActiveAlertsCount = userAlerts.filter(alert => !alert.triggered).length;
-
             const longAlertsCountElement = document.getElementById('longAlertsCount');
             const shortAlertsCountElement = document.getElementById('shortAlertsCount');
             const totalAlertsCountElement = document.getElementById('totalAlertsCount');
-
             if (longAlertsCountElement) longAlertsCountElement.textContent = activeLongAlertsCount;
             if (shortAlertsCountElement) shortAlertsCountElement.textContent = activeShortAlertsCount;
             if (totalAlertsCountElement) totalAlertsCountElement.textContent = `Всего: ${totalActiveAlertsCount}`;
         }
-
         function deleteAlert(alertId) {
             if (confirm('Вы уверены, что хотите удалить этот алерт?')) {
                 userAlerts = userAlerts.filter(alert => alert.id !== alertId);
@@ -2853,7 +2474,6 @@
                 showNotification('Успешно', 'Алерт удален');
             }
         }
-
         function clearAllAlerts() {
             if (confirm('Вы уверены, что хотите удалить все алерты?')) {
                 userAlerts = [];
@@ -2862,51 +2482,40 @@
                 showNotification('Успешно', 'Все алерты удалены');
             }
         }
-
         function editAlert(alertId) {
             const alert = userAlerts.find(a => a.id === alertId);
             if (!alert) return;
             openEditModal(alert);
         }
-
         function reactivateAlert(alertId) {
             const alert = userAlerts.find(a => a.id === alertId);
             if (!alert) return;
-
             alert.triggered = false;
             alert.triggeredCount = 0;
             saveAppState();
             loadUserAlerts(currentAlertFilter);
             showNotification('Успешно', 'Алерт снова активен');
         }
-
         async function exportAlertToTelegram(alertId) {
             const alert = userAlerts.find(a => a.id === alertId);
             if (!alert) return;
-
             const chatId = localStorage.getItem('tg_chat_id');
             if (!chatId) {
                 showBotConnectionHint();
                 return;
             }
-
             const message = `📌 Новый алерт:\nСимвол: ${alert.symbol}\nТип: ${alert.type}\nУсловие: ${alert.condition} ${alert.value}\nУведомлений: ${alert.notificationCount === 0 ? '∞' : alert.notificationCount}`;
-
             const success = await sendTelegramNotification(message, chatId);
-
             if (success) {
                 showNotification('Успешно', 'Алерт экспортирован в Telegram');
             } else {
                 showNotification('Ошибка', 'Не удалось отправить алерт в Telegram');
             }
         }
-
         function openEditModal(alert) {
             const editModal = document.getElementById('editModal');
             const editFormContent = document.getElementById('editFormContent');
-
             if (!editModal || !editFormContent) return;
-
             // Создаем HTML для формы редактирования
             editFormContent.innerHTML = `
                 <form id="editAlertForm" class="space-y-4">
@@ -3011,7 +2620,6 @@
                     </button>
                 </form>
             `;
-
             // Получаем текущую цену для отображения
             apiManager.getCurrentPrice(alert.symbol, alert.marketType).then(price => {
                 if (price !== null) {
@@ -3021,14 +2629,12 @@
                     }
                 }
             });
-
             // Назначаем обработчики событий для чекбоксов
             const telegramCheckbox = document.getElementById('editTelegram');
             if (telegramCheckbox) {
                 telegramCheckbox.addEventListener('change', function() {
                     const userChatId = document.getElementById('editUserChatId');
                     if (!userChatId) return;
-
                     if (this.checked) {
                         userChatId.classList.remove('hidden');
                         userChatId.required = true;
@@ -3040,13 +2646,11 @@
                     }
                 });
             }
-
             const emailCheckbox = document.getElementById('editEmail');
             if (emailCheckbox) {
                 emailCheckbox.addEventListener('change', function() {
                     const userEmail = document.getElementById('editUserEmail');
                     if (!userEmail) return;
-
                     if (this.checked) {
                         userEmail.classList.remove('hidden');
                         userEmail.required = true;
@@ -3058,7 +2662,6 @@
                     }
                 });
             }
-
             // Назначаем обработчик отправки формы
             const editForm = document.getElementById('editAlertForm');
             if (editForm) {
@@ -3067,14 +2670,11 @@
                     handleEditSubmit(alert.id);
                 });
             }
-
             // Отображаем модальное окно
             editModal.classList.add('active');
         }
-
         function handleEditSubmit(alertId) {
             if (!validateEditForm()) return;
-
             const symbol = document.getElementById('editCoinSearch')?.value;
             const type = document.getElementById('editAlertType')?.value;
             const condition = document.getElementById('editCondition')?.value;
@@ -3084,32 +2684,25 @@
             const userEmail = useEmail ? document.getElementById('editUserEmail')?.value : '';
             const userChatId = useTelegram ? document.getElementById('editUserChatId')?.value : '';
             const notificationCount = document.getElementById('editNotificationCount')?.value;
-
             if (!symbol || !type || !condition || !value || notificationCount === undefined) {
                 showNotification('Ошибка', 'Не все обязательные поля заполнены');
                 return;
             }
-
             if (useTelegram && !userChatId && !localStorage.getItem('tg_chat_id')) {
                 showNotification('Ошибка', 'Пожалуйста, укажите Telegram Chat ID');
                 return;
             }
-
             if (useEmail && !userEmail) {
                 showNotification('Ошибка', 'Пожалуйста, укажите email');
                 return;
             }
-
             const notificationMethods = [];
-
             if (useTelegram) notificationMethods.push('telegram');
             if (useEmail) notificationMethods.push('email');
-
             if (notificationMethods.length === 0) {
                 showNotification('Ошибка', 'Выберите хотя бы один метод уведомления');
                 return;
             }
-
             // Обновляем алерт
             const updatedAlert = {
                 id: parseInt(alertId),
@@ -3126,60 +2719,47 @@
                 lastNotificationTime: 0,
                 marketType: getMarketTypeBySymbol(symbol)
             };
-
             // Обновляем массив алертов
             userAlerts = userAlerts.map(a => a.id === parseInt(alertId) ? updatedAlert : a);
             saveAppState();
-
             if (useEmail) {
                 localStorage.setItem('userEmail', userEmail);
             }
-
             // Обновляем интерфейс
             loadUserAlerts(currentAlertFilter);
             showNotification('Успешно', `Алерт для ${symbol} обновлен`);
-
             // Закрываем модальное окно
             closeEditModal();
         }
-
         function closeEditModal() {
             const editModal = document.getElementById('editModal');
             const editFormContent = document.getElementById('editFormContent');
-
             if (editModal) editModal.classList.remove('active');
             if (editFormContent) editFormContent.innerHTML = '';
         }
-
         // Telegram settings functions
         function openTelegramSettings() {
             const modal = document.getElementById('telegramSettingsModal');
             const chatIdInput = document.getElementById('telegramChatId');
             const savedChatId = localStorage.getItem('tg_chat_id');
-
             if (chatIdInput && savedChatId) {
                 chatIdInput.value = savedChatId;
             }
-
             if (modal) {
                 modal.classList.add('active');
             }
         }
-
         function closeTelegramSettings() {
             const modal = document.getElementById('telegramSettingsModal');
             if (modal) {
                 modal.classList.remove('active');
             }
         }
-
         async function saveTelegramSettings() {
             const chatIdInput = document.getElementById('telegramChatId');
             const userChatId = document.getElementById('userChatId');
-
             if (chatIdInput && userChatId) {
                 const chatId = chatIdInput.value.trim();
-
                 if (chatId) {
                     try {
                         // Сохраняем chat_id в localStorage
@@ -3199,18 +2779,15 @@
                 }
             }
         }
-
         // Bot connection hint functions
         function showBotConnectionHint() {
             const modal = document.getElementById('botConnectionHint');
             if (modal) modal.classList.add('active');
         }
-
         function closeBotConnectionHint() {
             const modal = document.getElementById('botConnectionHint');
             if (modal) modal.classList.remove('active');
         }
-
         // Menu functions
         function toggleMenu() {
             const menuContent = document.getElementById('menuContent');
@@ -3218,31 +2795,26 @@
                 menuContent.classList.toggle('show');
             }
         }
-
         function showCalculator() {
             toggleMenu();
             // Перенаправляем на страницу калькулятора
             window.location.href = 'calculator.html';
         }
-
         function showAlerts() {
             toggleMenu();
             // Перенаправляем на страницу алертов
             window.location.href = 'alerts.html';
         }
-
         function showWidget() {
             toggleMenu();
             // Перенаправляем на страницу виджета
             window.location.href = 'widget.html';
         }
-
         function showMainPage() {
             toggleMenu();
             // Перенаправляем на главную страницу
             window.location.href = 'index.html';
         }
-
         function showLoginForm() {
             toggleMenu();
             const modal = document.getElementById('loginModal');
@@ -3250,14 +2822,12 @@
                 modal.classList.add('active');
             }
         }
-
         function closeLoginModal() {
             const modal = document.getElementById('loginModal');
             if (modal) {
                 modal.classList.remove('active');
             }
         }
-
         function showRegisterForm() {
             toggleMenu();
             const modal = document.getElementById('registerModal');
@@ -3265,113 +2835,93 @@
                 modal.classList.add('active');
             }
         }
-
         function closeRegisterModal() {
             const modal = document.getElementById('registerModal');
             if (modal) {
                 modal.classList.remove('active');
             }
         }
-
         function resetForm() {
             const alertForm = document.getElementById('alertForm');
             if (alertForm) {
                 alertForm.reset();
-
                 // Дополнительные сбросы
                 const coinSearch = document.getElementById('coinSearch');
                 if (coinSearch) {
                     coinSearch.value = '';
                     coinSearch.focus();
                 }
-
                 const symbolSelect = document.getElementById('symbol');
                 if (symbolSelect) {
                     symbolSelect.innerHTML = '';
                     symbolSelect.classList.add('hidden');
                 }
-
                 const symbolInput = document.getElementById('symbol');
                 if (symbolInput) {
                     symbolInput.value = '';
                 }
-
                 const marketTypeHint = document.getElementById('marketTypeHint');
                 if (marketTypeHint) {
                     marketTypeHint.innerHTML = '';
                 }
-
                 const currentPriceContainer = document.getElementById('currentPriceContainer');
                 if (currentPriceContainer) {
                     currentPriceContainer.classList.add('hidden');
                 }
-
                 const editAlertId = document.getElementById('editAlertId');
                 if (editAlertId) {
                     editAlertId.value = '';
                 }
-
                 const submitBtnText = document.getElementById('submitBtnText');
                 if (submitBtnText) {
                     submitBtnText.textContent = 'Создать алерт';
                 }
-
                 // Сбрасываем чекбоксы уведомлений к состоянию по умолчанию
                 const telegramCheckbox = document.getElementById('telegram');
                 if (telegramCheckbox) {
                     telegramCheckbox.checked = true;
                 }
-
                 const emailCheckbox = document.getElementById('email');
                 if (emailCheckbox) {
                     emailCheckbox.checked = false;
                 }
-
                 // Скрываем дополнительные поля и очищаем их
                 const userChatIdInput = document.getElementById('userChatId');
                 if (userChatIdInput) {
                     userChatIdInput.value = '';
                     userChatIdInput.classList.add('hidden');
                 }
-
                 const userEmailInput = document.getElementById('userEmail');
                 if (userEmailInput) {
                     userEmailInput.value = '';
                     userEmailInput.classList.add('hidden');
                 }
-
                 // Устанавливаем значение по умолчанию для количества уведомлений
                 const notificationCountSelect = document.getElementById('notificationCount');
                 if (notificationCountSelect) {
                     notificationCountSelect.value = '5';
                 }
-
                 // Очищаем все ошибки валидации
                 document.querySelectorAll('.validation-message').forEach(el => {
                     el.style.display = 'none';
                 });
-
                 document.querySelectorAll('.validation-error').forEach(el => {
                     el.classList.remove('validation-error');
                 });
             }
         }
-
         function setupEventListeners() {
             const coinSearch = document.getElementById('coinSearch');
             if (coinSearch) {
                 coinSearch.addEventListener('input', function() {
                     updateCoinSelect();
                     const searchTerm = this.value.toLowerCase();
-
                     if (searchTerm.length >= 2) {
                         const marketType = getMarketTypeBySymbol(searchTerm.toUpperCase());
-
                         if (marketType) {
                             const badge = marketType === 'spot' ?
                                 '<span class="spot-badge">SPOT</span>' :
                                 '<span class="futures-badge">FUTURES</span>';
-
                             const hint = document.getElementById('marketTypeHint');
                             if (hint) hint.innerHTML = badge;
                         } else {
@@ -3384,7 +2934,6 @@
                     }
                 });
             }
-
             const symbolSelect = document.getElementById('symbol');
             if (symbolSelect) {
                 symbolSelect.addEventListener('change', function() {
@@ -3392,41 +2941,33 @@
                     const selectedOption = this.options[this.selectedIndex];
                     const marketType = selectedOption.getAttribute('data-market-type');
                     this.classList.add('hidden');
-
                     const coinSearch = document.getElementById('coinSearch');
                     if (coinSearch) coinSearch.value = symbol;
-
                     const badge = marketType === 'spot' ?
                         '<span class="spot-badge">SPOT</span>' :
                         '<span class="futures-badge">FUTURES</span>';
-
                     const hint = document.getElementById('marketTypeHint');
                     if (hint) hint.innerHTML = badge;
-
                     // Скрываем ошибки валидации при выборе из списка
                     hideValidationError('coinSearch');
-
                     // Получаем текущую цену и показываем её
                     apiManager.getCurrentPrice(symbol, marketType).then(price => {
                         if (price !== null) {
                             const currentPriceContainer = document.getElementById('currentPriceContainer');
-                            const currentPriceValue = document.getElementById('currentPriceValue');
-
-                            if (currentPriceContainer && currentPriceValue) {
-                                currentPriceValue.textContent = price;
+                            const currentPriceValueElement = document.getElementById('currentPriceValue');
+                            if (currentPriceContainer && currentPriceValueElement) {
+                                currentPriceValueElement.textContent = price;
                                 currentPriceContainer.classList.remove('hidden');
                             }
                         }
                     });
                 });
             }
-
             const telegramCheckbox = document.getElementById('telegram');
             if (telegramCheckbox) {
                 telegramCheckbox.addEventListener('change', function() {
                     const userChatId = document.getElementById('userChatId');
                     if (!userChatId) return;
-
                     if (this.checked) {
                         userChatId.classList.remove('hidden');
                         userChatId.required = true;
@@ -3436,18 +2977,15 @@
                         userChatId.classList.add('hidden');
                         userChatId.required = false;
                     }
-
                     localStorage.setItem('tg_enabled', this.checked);
                     saveAppState();
                 });
             }
-
             const emailCheckbox = document.getElementById('email');
             if (emailCheckbox) {
                 emailCheckbox.addEventListener('change', function() {
                     const userEmail = document.getElementById('userEmail');
                     if (!userEmail) return;
-
                     if (this.checked) {
                         userEmail.classList.remove('hidden');
                         userEmail.required = true;
@@ -3459,22 +2997,18 @@
                     }
                 });
             }
-
             const alertForm = document.getElementById('alertForm');
             if (alertForm) {
                 alertForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
-
                     // Добавляем проверку подключения к боту
                     const telegramCheckbox = document.getElementById('telegram');
                     if (telegramCheckbox && telegramCheckbox.checked && !localStorage.getItem('tg_chat_id')) {
                         showBotConnectionHint();
                         return;
                     }
-
                     // Валидация формы
                     if (!validateForm()) return;
-
                     const symbol = document.getElementById('symbol')?.value;
                     const alertType = document.getElementById('alertType')?.value;
                     const condition = document.getElementById('condition')?.value;
@@ -3484,33 +3018,26 @@
                     const userEmail = useEmail ? document.getElementById('userEmail')?.value : '';
                     const userChatId = useTelegram ? document.getElementById('userChatId')?.value : '';
                     const notificationCount = document.getElementById('notificationCount')?.value;
-
                     if (!symbol || !alertType || !condition || !value || notificationCount === undefined) {
                         showNotification('Ошибка', 'Не все обязательные поля заполнены');
                         return;
                     }
-
                     if (useTelegram && !userChatId && !localStorage.getItem('tg_chat_id')) {
                         showNotification('Ошибка', 'Пожалуйста, укажите Telegram Chat ID');
                         return;
                     }
-
                     if (useEmail && !userEmail) {
                         showNotification('Ошибка', 'Пожалуйста, укажите email');
                         return;
                     }
-
                     const notificationMethods = [];
                     if (useTelegram) notificationMethods.push('telegram');
                     if (useEmail) notificationMethods.push('email');
-
                     if (notificationMethods.length === 0) {
                         showNotification('Ошибка', 'Выберите хотя бы один метод уведомления');
                         return;
                     }
-
                     const editAlertId = document.getElementById('editAlertId')?.value;
-
                     if (editAlertId) {
                         // Редактирование существующего алерта
                         const updatedAlert = {
@@ -3528,42 +3055,34 @@
                             lastNotificationTime: 0,
                             marketType: getMarketTypeBySymbol(symbol)
                         };
-
                         userAlerts = userAlerts.map(a => a.id === parseInt(editAlertId) ? updatedAlert : a);
                         saveAppState();
-
                         if (useEmail) {
                             localStorage.setItem('userEmail', userEmail);
                         }
-
                         loadUserAlerts(currentAlertFilter);
                         showNotification('Успешно', `Алерт для ${symbol} обновлен`);
                         resetForm();
                     } else {
                         // Создание нового алерта
                         const success = await addUserAlert(symbol, alertType, condition, value, notificationMethods, notificationCount, userChatId);
-
                         if (success) {
                             showNotification('Успешно', `Алерт для ${symbol} создан`);
                             resetForm();
-
                             // Обновляем список алертов
                             loadUserAlerts(currentAlertFilter);
                         }
                     }
                 });
             }
-
             const clearAlertsBtn = document.getElementById('clearAlerts');
             if (clearAlertsBtn) {
                 clearAlertsBtn.addEventListener('click', clearAllAlerts);
             }
-
             const exportAllAlertsBtn = document.getElementById('exportAllAlerts');
             if (exportAllAlertsBtn) {
                 exportAllAlertsBtn.addEventListener('click', exportAllActiveAlerts);
             }
-
             const closeNotificationBtn = document.getElementById('closeNotification');
             if (closeNotificationBtn) {
                 closeNotificationBtn.addEventListener('click', function() {
@@ -3571,42 +3090,35 @@
                     if (notificationModal) notificationModal.classList.add('hidden');
                 });
             }
-
             // Обработчики для кнопок фильтрации алертов
             const showActiveAlertsBtn = document.getElementById('showActiveAlerts');
             if (showActiveAlertsBtn) {
                 showActiveAlertsBtn.addEventListener('click', () => loadUserAlerts('active'));
             }
-
             const showTriggeredAlertsBtn = document.getElementById('showTriggeredAlerts');
             if (showTriggeredAlertsBtn) {
                 showTriggeredAlertsBtn.addEventListener('click', () => loadUserAlerts('triggered'));
             }
-
             const showHistoryAlertsBtn = document.getElementById('showHistoryAlerts');
             if (showHistoryAlertsBtn) {
                 showHistoryAlertsBtn.addEventListener('click', () => loadUserAlerts('history'));
             }
-
             const showAllAlertsBtn = document.getElementById('showAllAlerts');
             if (showAllAlertsBtn) {
                 showAllAlertsBtn.addEventListener('click', () => loadUserAlerts('all'));
             }
-
             // Обработчик для импорта алертов из файла (только фьючерсы)
             const bulkImportFile = document.getElementById('bulkImportFile');
             if (bulkImportFile) {
                 bulkImportFile.addEventListener('change', async function(event) {
                     const file = event.target.files[0];
                     if (!file) return;
-
                     const reader = new FileReader();
                     reader.onload = async function(e) {
                         const content = e.target.result;
                         const lines = content.split('\n');
                         let importedCount = 0;
                         let skippedCount = 0;
-
                         // Получаем текущие настройки уведомлений
                         const useTelegram = document.getElementById('telegram')?.checked || false;
                         const useEmail = document.getElementById('email')?.checked || false;
@@ -3615,55 +3127,43 @@
                         const notificationCount = document.getElementById('notificationCount')?.value || '5';
                         const alertType = document.getElementById('alertType')?.value || 'price';
                         const notificationMethods = [];
-
                         if (useTelegram) notificationMethods.push('telegram');
                         if (useEmail) notificationMethods.push('email');
-
                         if (notificationMethods.length === 0) {
                             showNotification('Ошибка', 'Выберите хотя бы один метод уведомлений перед импортом');
                             return;
                         }
-
                         // Проверяем подключение к боту если Telegram выбран
                         if (notificationMethods.includes('telegram') && !userChatId) {
                             showBotConnectionHint();
                             return;
                         }
-
                         for (const line of lines) {
                             const trimmedLine = line.trim();
                             if (!trimmedLine) continue;
-
                             // Исправляем разбор строки
                             const parts = trimmedLine.split(/\s+/);
-
                             if (parts.length < 3) {
                                 skippedCount++;
                                 continue;
                             }
-
                             const symbol = parts[0].toUpperCase();
                             const condition = parts[1] === '+' ? '>' : parts[1] === '-' ? '<' : parts[1];
                             const value = parts[2];
-
                             if (condition !== '>' && condition !== '<') {
                                 skippedCount++;
                                 continue;
                             }
-
                             if (isNaN(parseFloat(value))) {
                                 skippedCount++;
                                 continue;
                             }
-
                             // Проверяем что символ является фьючерсным
                             const isFutures = allFutures.some(f => f.symbol === symbol);
-
                             if (!isFutures) {
                                 skippedCount++;
                                 continue;
                             }
-
                             // Добавляем алерт
                             const success = await addUserAlert(
                                 symbol,
@@ -3674,46 +3174,37 @@
                                 notificationCount,
                                 userChatId
                             );
-
                             if (success) {
                                 importedCount++;
                             } else {
                                 skippedCount++;
                             }
                         }
-
                         showNotification('Импорт завершен',
                             `Успешно импортировано ${importedCount} фьючерсных алертов\n` +
                             `Пропущено: ${skippedCount} (не фьючерсы или ошибки формата)`);
-
                         loadUserAlerts(currentAlertFilter);
-
                         // Сбрасываем значение input файла, чтобы можно было загрузить тот же файл снова
                         event.target.value = '';
                     };
-
                     reader.readAsText(file);
                 });
             }
-
             // Обработчик для меню
             const menuButton = document.getElementById('menuButton');
             if (menuButton) {
                 menuButton.addEventListener('click', toggleMenu);
             }
-
             // Закрываем меню при клике вне его
             window.addEventListener('click', function(event) {
                 const menuContent = document.getElementById('menuContent');
                 const menuButton = document.getElementById('menuButton');
-
                 if (menuContent && menuButton &&
                     !menuContent.contains(event.target) &&
                     !menuButton.contains(event.target)) {
                     menuContent.classList.remove('show');
                 }
             });
-
             // Обработчики для вкладок шорт и лонг алертов
             const showLongAlertsBtn = document.getElementById('showLongAlerts');
             if (showLongAlertsBtn) {
@@ -3726,7 +3217,6 @@
                     document.getElementById('showShortAlerts').classList.remove('bg-blue-900', 'text-blue-300');
                 });
             }
-
             const showShortAlertsBtn = document.getElementById('showShortAlerts');
             if (showShortAlertsBtn) {
                 showShortAlertsBtn.addEventListener('click', () => {
@@ -3738,17 +3228,14 @@
                     document.getElementById('showLongAlerts').classList.remove('bg-blue-900', 'text-blue-300');
                 });
             }
-
             // Обработчик для поисковой строки
             const alertSearch = document.getElementById('alertSearch');
             if (alertSearch) {
                 alertSearch.addEventListener('input', function() {
                     const searchTerm = this.value.toLowerCase();
                     const alerts = document.querySelectorAll('.alert-card');
-
                     alerts.forEach(alert => {
                         const symbol = alert.querySelector('.font-medium.text-light').textContent.toLowerCase();
-
                         if (symbol.includes(searchTerm)) {
                             alert.style.display = 'block';
                         } else {
@@ -3758,80 +3245,50 @@
                 });
             }
         }
-
         // Инициализация приложения
         document.addEventListener('DOMContentLoaded', async () => {
             apiManager = new BinanceAPIManager();
-
             try {
                 await apiManager.init();
                 loadAppState();
                 setupEventListeners();
                 await loadMarketData();
                 loadUserAlerts(currentAlertFilter);
-
                 // Проверяем сохраненный chat_id
                 const savedChatId = localStorage.getItem('tg_chat_id');
                 if (savedChatId) {
                     const userChatId = document.getElementById('userChatId');
                     if (userChatId) userChatId.value = savedChatId;
                 }
-
                 // Проверяем сохраненный email
                 const savedEmail = localStorage.getItem('userEmail');
                 if (savedEmail) {
                     const userEmail = document.getElementById('userEmail');
                     if (userEmail) userEmail.value = savedEmail;
                 }
-
                 // Проверяем авторизацию пользователя
                 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
                 if (currentUser && currentUser.email) {
                     updateUserUI(currentUser.email);
                 }
-
                 // Запускаем проверку алертов каждые 2 секунды
                 setInterval(checkAlerts, 2000);
+                // Инициализация дашборда
+                initializeSortableLists();
+                setupInputHandlers();
+                loadTickersFromStorage();
+                updateStats();
+                setInterval(updateAllPrices, 10000);
             } catch (error) {
                 console.error('Failed to initialize application:', error);
                 showNotification('Critical Error', 'Failed to connect to Binance API');
             }
         });
-
         // Глобальный обработчик ошибок
         window.addEventListener('error', (event) => {
             console.error('Global error:', event.error);
             showNotification('System Error', event.message || 'Unknown error occurred');
         });
-
-        window.createAlertForSymbol = createAlertForSymbol;
-        window.deleteAlert = deleteAlert;
-        window.applyCurrentPrice = applyCurrentPrice;
-        window.applyCurrentPriceForEdit = applyCurrentPriceForEdit;
-        window.editAlert = editAlert;
-        window.closeEditModal = closeEditModal;
-        window.openTelegramSettings = openTelegramSettings;
-        window.closeTelegramSettings = closeTelegramSettings;
-        window.saveTelegramSettings = saveTelegramSettings;
-        window.showBotConnectionHint = showBotConnectionHint;
-        window.closeBotConnectionHint = closeBotConnectionHint;
-        window.showCalculator = showCalculator;
-        window.showAlerts = showAlerts;
-        window.showWidget = showWidget;
-        window.showMainPage = showMainPage;
-        window.showLoginForm = showLoginForm;
-        window.closeLoginModal = closeLoginModal;
-        window.showRegisterForm = showRegisterForm;
-        window.closeRegisterModal = closeRegisterModal;
-        window.handleLogin = handleLogin;
-        window.handleRegister = handleRegister;
-        window.handleLogout = handleLogout;
-        window.toggleMenu = toggleMenu;
-        window.resetForm = resetForm;
-        window.reactivateAlert = reactivateAlert;
-        window.exportAlertToTelegram = exportAlertToTelegram;
-        window.exportAllActiveAlerts = exportAllActiveAlerts;
-
         // Инициализация сортируемых списков
         function initializeSortableLists() {
             document.querySelectorAll('.ticker-list').forEach(list => {
@@ -3841,20 +3298,17 @@
                     onEnd: function(evt) {
                         const listType = evt.to.id.replace('-list', '');
                         const tickers = Array.from(evt.to.children).filter(item => item.classList.contains('ticker-item')).map(item => item.dataset.ticker);
-
                         // Переупорядочиваем объект tickersData
                         const reorderedData = {};
                         tickers.forEach(ticker => {
                             reorderedData[ticker] = tickersData[listType][ticker];
                         });
-
                         tickersData[listType] = reorderedData;
                         saveTickersToStorage();
                     }
                 });
             });
         }
-
         // Настройка обработчиков для полей ввода
         function setupInputHandlers() {
             document.querySelectorAll('.ticker-input').forEach(input => {
@@ -3868,7 +3322,6 @@
                         addTicker(type);
                     }
                 });
-
                 // Обработчик ввода для поиска тикеров
                 input.addEventListener('input', function(e) {
                     const panel = this.closest('.panel');
@@ -3877,7 +3330,6 @@
                                 panel.classList.contains('long-wait') ? 'long-wait' : 'short-wait';
                     showTickerSuggestions(this.value.trim().toUpperCase(), type);
                 });
-
                 // Скрываем подсказки при потере фокуса
                 input.addEventListener('blur', function() {
                     setTimeout(() => {
@@ -3890,27 +3342,22 @@
                 });
             });
         }
-
         // Показать подсказки для тикеров
         function showTickerSuggestions(query, listType) {
             const suggestionsContainer = document.getElementById(`${listType}-suggestions`);
             suggestionsContainer.innerHTML = '';
-
             if (!query) {
                 suggestionsContainer.style.display = 'none';
                 return;
             }
-
             // Фильтруем популярные тикеры по запросу
             const filteredTickers = Object.keys(popularTickers)
                 .filter(ticker => ticker.includes(query))
                 .slice(0, 10); // Ограничиваем 10 подсказками
-
             if (filteredTickers.length === 0) {
                 suggestionsContainer.style.display = 'none';
                 return;
             }
-
             // Добавляем подсказки в контейнер
             filteredTickers.forEach(ticker => {
                 const suggestionItem = document.createElement('div');
@@ -3921,7 +3368,6 @@
                         ${popularTickers[ticker].type === 'spot' ? 'SPOT' : 'FUTURES'}
                     </span>
                 `;
-
                 suggestionItem.addEventListener('mousedown', (e) => {
                     e.preventDefault();
                     const input = document.getElementById(`${listType}-input`);
@@ -3929,13 +3375,10 @@
                     suggestionsContainer.style.display = 'none';
                     input.focus();
                 });
-
                 suggestionsContainer.appendChild(suggestionItem);
             });
-
             suggestionsContainer.style.display = 'block';
         }
-
         // Копировать тикер в буфер обмена
         function copyTicker(ticker) {
             navigator.clipboard.writeText(ticker).then(() => {
@@ -3952,7 +3395,6 @@
                 notification.style.zIndex = '1000';
                 notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
                 document.body.appendChild(notification);
-
                 setTimeout(() => {
                     notification.style.opacity = '0';
                     notification.style.transition = 'opacity 0.5s';
@@ -3964,24 +3406,18 @@
                 console.error('Ошибка при копировании тикера:', err);
             });
         }
-
         // Загрузка тикеров из localStorage
         function loadTickersFromStorage() {
             const savedData = localStorage.getItem('cryptoDashboardTickers');
-
             if (savedData) {
                 const parsedData = JSON.parse(savedData);
-
                 for (const listType in parsedData) {
                     if (parsedData.hasOwnProperty(listType)) {
                         tickersData[listType] = parsedData[listType];
-
                         // Восстанавливаем элементы на странице
                         const list = document.getElementById(`${listType}-list`);
                         list.innerHTML = '';
-
                         let lastDay = null;
-
                         for (const ticker in parsedData[listType]) {
                             if (parsedData[listType].hasOwnProperty(ticker)) {
                                 const tickerData = parsedData[listType][ticker];
@@ -3992,7 +3428,6 @@
                                     year: 'numeric',
                                     weekday: 'long'
                                 });
-
                                 // Добавляем разделитель дня, если он изменился
                                 if (currentDay !== lastDay) {
                                     const dayDivider = document.createElement('div');
@@ -4001,35 +3436,31 @@
                                     list.appendChild(dayDivider);
                                     lastDay = currentDay;
                                 }
-
                                 addTickerToList(ticker, listType);
                             }
                         }
                     }
                 }
+                // Обновляем статистику после загрузки
+                updateStats();
             }
         }
-
         // Сохранение тикеров в localStorage
         function saveTickersToStorage() {
             localStorage.setItem('cryptoDashboardTickers', JSON.stringify(tickersData));
             updateStats();
         }
-
         // Добавление тикера
         async function addTicker(listType) {
             const input = document.getElementById(`${listType}-input`);
             const errorElement = document.getElementById(`${listType}-error`);
             let ticker = input.value.trim().toUpperCase();
-
             // Нормализация тикера (удаляем все не-буквы и цифры)
             ticker = ticker.replace(/[^A-Z0-9.]/g, '');
-
             if (!ticker) {
                 showError(errorElement, 'Введите тикер');
                 return;
             }
-
             // Преобразование тикера фьючерса (XLMUSDT.P → XLMUSDT_PERP)
             if (ticker.includes('.P')) {
                 ticker = ticker.replace('.P', '_PERP');
@@ -4038,12 +3469,10 @@
             else if (!ticker.endsWith('USDT') && !ticker.includes('_PERP')) {
                 ticker += 'USDT';
             }
-
             if (tickersData[listType][ticker]) {
                 showError(errorElement, 'Этот тикер уже добавлен');
                 return;
             }
-
             // Создаем новый тикер
             const now = new Date();
             const currentDay = now.toLocaleDateString('ru-RU', {
@@ -4052,7 +3481,6 @@
                 year: 'numeric',
                 weekday: 'long'
             });
-
             tickersData[listType][ticker] = {
                 name: popularTickers[ticker] ? popularTickers[ticker].name : ticker.replace(/USDT$|_PERP$/, ''),
                 price: '0.000000',
@@ -4062,7 +3490,6 @@
                 stars: 0,
                 addedDay: currentDay // Сохраняем день добавления в формате строки
             };
-
             // Пробуем получить данные с Binance (для spot и futures)
             try {
                 let apiUrl;
@@ -4074,9 +3501,7 @@
                     // Для спота используем Spot API
                     apiUrl = `https://api.binance.com/api/v3/ticker/24hr?symbol=${ticker}`;
                 }
-
                 const response = await fetch(apiUrl);
-
                 if (response.ok) {
                     const data = await response.json();
                     tickersData[listType][ticker].price = parseFloat(data.lastPrice).toFixed(6);
@@ -4086,11 +3511,9 @@
             } catch (error) {
                 console.error(`Ошибка при проверке тикера ${ticker}:`, error);
             }
-
             // Добавляем на страницу
             const list = document.getElementById(`${listType}-list`);
             const tickers = Object.keys(tickersData[listType]);
-
             // Проверяем, нужно ли добавить разделитель дня
             if (tickers.length === 1 ||
                 (tickers.length > 1 && tickersData[listType][tickers[tickers.length-2]].addedDay !== currentDay)) {
@@ -4099,44 +3522,35 @@
                 dayDivider.textContent = currentDay;
                 list.appendChild(dayDivider);
             }
-
             addTickerToList(ticker, listType);
             saveTickersToStorage();
             input.value = '';
             hideError(errorElement);
-
             // Скрываем подсказки
             document.getElementById(`${listType}-suggestions`).style.display = 'none';
-
             // Открываем модальное окно для ручного ввода (если не Binance)
             if (!tickersData[listType][ticker].isBinance) {
                 editTicker(ticker, listType);
             }
         }
-
         // Добавление тикера в список на странице
         function addTickerToList(ticker, listType) {
             const list = document.getElementById(`${listType}-list`);
             const tickerData = tickersData[listType][ticker];
-
             // Отображаем тикер с .P для фьючерсов (если был введен с .P)
             const displayTicker = ticker.includes('_PERP') ? ticker.replace('_PERP', '.P') : ticker;
-
             const changeNum = parseFloat(tickerData.change);
             const changeClass = changeNum > 0 ?
                               'positive' :
                               changeNum < 0 ?
                               'negative' : 'neutral';
-
             const addedDate = new Date(tickerData.addedDate);
             const formattedDate = addedDate.toLocaleString();
-
             // Создаем звезды рейтинга
             const starsHtml = Array(3).fill(0).map((_, i) =>
                 `<i class="star ${i < tickerData.stars ? 'fas' : 'far'} fa-star"
                     onclick="rateTicker(event, '${ticker}', '${listType}', ${i + 1})"></i>`
             ).join('');
-
             const listItem = document.createElement('li');
             listItem.className = 'ticker-item';
             listItem.dataset.ticker = ticker;
@@ -4167,176 +3581,141 @@
                     <button class="action-btn delete-btn" onclick="removeTicker(event, this)">×</button>
                 </div>
             `;
-
             // Добавляем обработчик клика для редактирования
             listItem.querySelector('.ticker-info').addEventListener('click', function() {
                 editTicker(ticker, listType);
             });
-
             list.appendChild(listItem);
         }
-
         // Оценить тикер звездами
         function rateTicker(event, ticker, listType, rating) {
             event.stopPropagation();
             const tickerData = tickersData[listType][ticker];
-
             // Если кликнули на ту же звезду, что и текущий рейтинг - снимаем оценку
             tickerData.stars = tickerData.stars === rating ? 0 : rating;
-
             // Обновляем отображение звезд
             const stars = event.target.parentElement.querySelectorAll('.star');
             stars.forEach((star, i) => {
                 star.classList.toggle('fas', i < tickerData.stars);
                 star.classList.toggle('far', i >= tickerData.stars);
             });
-
             saveTickersToStorage();
         }
-
         // Переместить тикер вверх
         function moveTickerUp(event, button) {
             event.stopPropagation();
             const listItem = button.closest('.ticker-item');
             let prevItem = listItem.previousElementSibling;
-
             // Пропускаем разделители дней
             while (prevItem && prevItem.classList.contains('day-divider')) {
                 prevItem = prevItem.previousElementSibling;
             }
-
             if (prevItem) {
                 const list = listItem.parentElement;
                 list.insertBefore(listItem, prevItem);
                 updateTickersOrder(list.id.replace('-list', ''));
             }
         }
-
         // Переместить тикер вниз
         function moveTickerDown(event, button) {
             event.stopPropagation();
             const listItem = button.closest('.ticker-item');
             let nextItem = listItem.nextElementSibling;
-
             // Пропускаем разделители дней
             while (nextItem && nextItem.classList.contains('day-divider')) {
                 nextItem = nextItem.nextElementSibling;
             }
-
             if (nextItem) {
                 const list = listItem.parentElement;
                 list.insertBefore(nextItem, listItem);
                 updateTickersOrder(list.id.replace('-list', ''));
             }
         }
-
         // Обновить порядок тикеров после перемещения
         function updateTickersOrder(listType) {
             const list = document.getElementById(`${listType}-list`);
             const tickers = Array.from(list.children)
                 .filter(item => item.classList.contains('ticker-item'))
                 .map(item => item.dataset.ticker);
-
             // Переупорядочиваем объект tickersData
             const reorderedData = {};
             tickers.forEach(ticker => {
                 reorderedData[ticker] = tickersData[listType][ticker];
             });
-
             tickersData[listType] = reorderedData;
             saveTickersToStorage();
         }
-
         // Редактирование тикера
         function editTicker(ticker, listType) {
             currentTicker = ticker;
             currentListType = listType;
             const tickerData = tickersData[listType][ticker];
-
             // Отображаем тикер с .P для фьючерсов (если был введен с .P)
             const displayTicker = ticker.includes('_PERP') ? ticker.replace('_PERP', '.P') : ticker;
-
             modalTicker.textContent = displayTicker;
             priceInput.value = tickerData.price;
             changeInput.value = tickerData.change;
             priceModal.style.display = 'flex';
         }
-
         // Закрытие модального окна
         function closeModal() {
             priceModal.style.display = 'none';
         }
-
         // Подтверждение ручного ввода цены
         function confirmManualPrice() {
             const price = parseFloat(priceInput.value);
             const change = parseFloat(changeInput.value) || 0;
-
             if (!isNaN(price)) {
                 tickersData[currentListType][currentTicker].price = price.toFixed(6);
                 tickersData[currentListType][currentTicker].change = change.toFixed(2);
-
                 // Обновляем на странице
                 updateTickerOnPage(currentTicker, currentListType);
-
                 saveTickersToStorage();
                 closeModal();
             }
         }
-
         // Обновление тикера на странице
         function updateTickerOnPage(ticker, listType) {
             const tickerData = tickersData[listType][ticker];
             const listItem = document.querySelector(`.ticker-item[data-ticker="${ticker}"][data-list-type="${listType}"]`);
-
             if (listItem) {
                 const changeNum = parseFloat(tickerData.change);
                 const changeClass = changeNum > 0 ?
                                   'positive' :
                                   changeNum < 0 ?
                                   'negative' : 'neutral';
-
                 const addedDate = new Date(tickerData.addedDate);
                 const formattedDate = addedDate.toLocaleString();
-
                 listItem.querySelector('.price-value').innerHTML = `$${tickerData.price} <span class="price-change ${changeClass}">${tickerData.change}%</span>`;
                 listItem.querySelector('.added-date').textContent = formattedDate;
             }
         }
-
         // Удаление тикера
         function removeTicker(event, button) {
             event.stopPropagation();
             const listItem = button.closest('.ticker-item');
             const ticker = listItem.dataset.ticker;
             const listType = listItem.dataset.listType;
-
             // Удаляем из объекта данных
             delete tickersData[listType][ticker];
-
             // Удаляем со страницы
             listItem.remove();
-
             // Проверяем, нужно ли удалить разделитель дня
             const list = document.getElementById(`${listType}-list`);
             const tickersInDay = Array.from(list.children)
                 .filter(item => item.classList.contains('ticker-item') &&
                        tickersData[listType][item.dataset.ticker]?.addedDay === tickersData[listType][ticker]?.addedDay);
-
             if (tickersInDay.length === 0) {
                 const dayDivider = Array.from(list.children).find(item =>
                     item.classList.contains('day-divider') &&
                     item.textContent === tickersData[listType][ticker]?.addedDay);
-
                 if (dayDivider) {
                     dayDivider.remove();
                 }
             }
-
             // Сохраняем в localStorage
             saveTickersToStorage();
         }
-
         // Очистить все тикеры в списке
         function clearAllTickers(listType) {
             if (confirm(`Вы уверены, что хотите удалить все тикеры из списка ${listType}?`)) {
@@ -4345,14 +3724,11 @@
                 saveTickersToStorage();
             }
         }
-
         // Обновление цены для одного тикера
         async function updateTickerPrice(ticker, listType) {
             const tickerData = tickersData[listType][ticker];
-
             // Пропускаем обновление для ручных тикеров
             if (!tickerData.isBinance) return;
-
             try {
                 let apiUrl;
                 if (ticker.includes('_PERP')) {
@@ -4363,24 +3739,19 @@
                     // Для спота используем Spot API
                     apiUrl = `https://api.binance.com/api/v3/ticker/24hr?symbol=${ticker}`;
                 }
-
                 const response = await fetch(apiUrl);
-
                 if (response.ok) {
                     const data = await response.json();
                     tickerData.price = parseFloat(data.lastPrice).toFixed(6);
                     tickerData.change = parseFloat(data.priceChangePercent).toFixed(2);
-
                     // Обновляем на странице
                     updateTickerOnPage(ticker, listType);
-
                     saveTickersToStorage();
                 }
             } catch (error) {
                 console.error(`Ошибка при обновлении ${ticker}:`, error);
             }
         }
-
         // Обновление цен для всех тикеров
         function updateAllPrices() {
             for (const listType in tickersData) {
@@ -4393,7 +3764,6 @@
                 }
             }
         }
-
         // Обновление статистики
         function updateStats() {
             let totalTickers = 0;
@@ -4401,26 +3771,22 @@
             let shortCount = 0;
             let longWaitCount = 0;
             let shortWaitCount = 0;
-
             for (const listType in tickersData) {
                 if (tickersData.hasOwnProperty(listType)) {
                     const count = Object.keys(tickersData[listType]).length;
                     totalTickers += count;
-
                     if (listType === 'long') longCount = count;
                     if (listType === 'short') shortCount = count;
                     if (listType === 'long-wait') longWaitCount = count;
                     if (listType === 'short-wait') shortWaitCount = count;
                 }
             }
-
             document.getElementById('total-tickers').textContent = totalTickers;
             document.getElementById('long-count').textContent = longCount;
             document.getElementById('short-count').textContent = shortCount;
             document.getElementById('long-wait-count').textContent = longWaitCount;
             document.getElementById('short-wait-count').textContent = shortWaitCount;
         }
-
         // Показать сообщение об ошибке
         function showError(element, message) {
             element.textContent = message;
@@ -4429,11 +3795,48 @@
                 element.style.display = 'none';
             }, 3000);
         }
-
         // Скрыть сообщение об ошибке
         function hideError(element) {
             element.style.display = 'none';
         }
+        // Глобальные функции для вызова из HTML
+        window.copyTicker = copyTicker;
+        window.removeTicker = removeTicker;
+        window.editTicker = editTicker;
+        window.closeModal = closeModal;
+        window.confirmManualPrice = confirmManualPrice;
+        window.rateTicker = rateTicker;
+        window.moveTickerUp = moveTickerUp;
+        window.moveTickerDown = moveTickerDown;
+        window.addTicker = addTicker;
+        window.clearAllTickers = clearAllTickers;
+        window.createAlertForSymbol = createAlertForSymbol;
+        window.deleteAlert = deleteAlert;
+        window.applyCurrentPrice = applyCurrentPrice;
+        window.applyCurrentPriceForEdit = applyCurrentPriceForEdit;
+        window.editAlert = editAlert;
+        window.closeEditModal = closeEditModal;
+        window.openTelegramSettings = openTelegramSettings;
+        window.closeTelegramSettings = closeTelegramSettings;
+        window.saveTelegramSettings = saveTelegramSettings;
+        window.showBotConnectionHint = showBotConnectionHint;
+        window.closeBotConnectionHint = closeBotConnectionHint;
+        window.showCalculator = showCalculator;
+        window.showAlerts = showAlerts;
+        window.showWidget = showWidget;
+        window.showMainPage = showMainPage;
+        window.showLoginForm = showLoginForm;
+        window.closeLoginModal = closeLoginModal;
+        window.showRegisterForm = showRegisterForm;
+        window.closeRegisterModal = closeRegisterModal;
+        window.handleLogin = handleLogin;
+        window.handleRegister = handleRegister;
+        window.handleLogout = handleLogout;
+        window.toggleMenu = toggleMenu;
+        window.resetForm = resetForm;
+        window.reactivateAlert = reactivateAlert;
+        window.exportAlertToTelegram = exportAlertToTelegram;
+        window.exportAllActiveAlerts = exportAllActiveAlerts;
     </script>
     <!-- Подключаем библиотеку для сортировки -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
