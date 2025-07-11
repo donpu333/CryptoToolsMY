@@ -338,12 +338,18 @@
             border-color: #4361ee;
         }
 
-        .collage-result {
+        .collage-result-container {
+            display: flex;
             width: 100%;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .collage-result {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem;
         }
 
         #collageCanvas {
@@ -355,6 +361,56 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
+        .text-column {
+            flex: 0 0 300px;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+
+        .text-column h3 {
+            font-size: 1.2rem;
+            color: #4cc9f0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .instruction-item {
+            margin-bottom: 1rem;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .instruction-text {
+            margin-right: 30px;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background-color: #3f37c9;
+        }
+
+        .copy-btn i {
+            margin-right: 4px;
+        }
+
         .instructions {
             margin: 1.5rem 0;
             padding: 1.5rem;
@@ -364,39 +420,8 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .instruction-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            border-radius: 6px;
-            transition: background-color 0.3s;
-        }
-
-        .instruction-item:hover {
-            background-color: rgba(76, 201, 240, 0.1);
-        }
-
-        .instruction-item p {
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .copy-btn {
-            background: transparent;
-            border: none;
-            color: #4cc9f0;
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            transition: all 0.3s;
-            margin-left: 0.5rem;
-        }
-
-        .copy-btn:hover {
-            color: #ffffff;
-            background-color: rgba(76, 201, 240, 0.2);
+        .instructions p {
+            line-height: 1.6;
         }
 
         .file-input-label {
@@ -528,39 +553,6 @@
             font-size: 1.8rem;
         }
 
-        /* Стили для текстовой колонки */
-        .collage-with-text {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .collage-column {
-            flex: 3;
-        }
-
-        .text-column {
-            flex: 1;
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #333;
-        }
-
-        .text-column textarea {
-            width: 100%;
-            height: 100%;
-            min-height: 500px;
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            resize: none;
-            outline: none;
-        }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.6; }
@@ -581,15 +573,6 @@
 
             .main-container {
                 padding: 15px;
-            }
-            
-            .collage-with-text {
-                flex-direction: column;
-            }
-            
-            .collage-column, .text-column {
-                flex: 1;
-                width: 100%;
             }
         }
     </style>
@@ -647,27 +630,27 @@
 
             <div class="instructions">
                 <div class="instruction-item">
-                    <p>1. 1D proboy short</p>
+                    <div class="instruction-text">1. 1D proboy short</div>
                     <button class="copy-btn" onclick="copyToClipboard('1. 1D proboy short')">
-                        <i class="fas fa-copy"></i>
+                        <i class="fas fa-copy"></i>Копировать
                     </button>
                 </div>
                 <div class="instruction-item">
-                    <p>2. 1D proboy LONG</p>
+                    <div class="instruction-text">2. 1D proboy LONG</div>
                     <button class="copy-btn" onclick="copyToClipboard('2. 1D proboy LONG')">
-                        <i class="fas fa-copy"></i>
+                        <i class="fas fa-copy"></i>Копировать
                     </button>
                 </div>
                 <div class="instruction-item">
-                    <p>3. 1D LP LONG</p>
+                    <div class="instruction-text">3. 1D LP LONG</div>
                     <button class="copy-btn" onclick="copyToClipboard('3. 1D LP LONG')">
-                        <i class="fas fa-copy"></i>
+                        <i class="fas fa-copy"></i>Копировать
                     </button>
                 </div>
                 <div class="instruction-item">
-                    <p>4. 1D LP short</p>
+                    <div class="instruction-text">4. 1D LP short</div>
                     <button class="copy-btn" onclick="copyToClipboard('4. 1D LP short')">
-                        <i class="fas fa-copy"></i>
+                        <i class="fas fa-copy"></i>Копировать
                     </button>
                 </div>
             </div>
@@ -729,14 +712,18 @@
                 </button>
             </div>
 
-            <div class="collage-result">
-                <div class="collage-with-text">
-                    <div class="collage-column">
-                        <canvas id="collageCanvas"></canvas>
+            <div class="collage-result-container">
+                <div class="collage-result">
+                    <canvas id="collageCanvas"></canvas>
+                </div>
+                <div class="text-column" id="textColumn">
+                    <h3>Текстовая информация</h3>
+                    <div id="customTextContent" contenteditable="true" style="min-height: 200px; padding: 10px; background-color: #2a2a2a; border-radius: 6px; margin-bottom: 10px;">
+                        Вставьте сюда ваш текст. Он сохранит форматирование.
                     </div>
-                    <div class="text-column">
-                        <textarea id="collageText" placeholder="Введите текст для коллажа здесь..."></textarea>
-                    </div>
+                    <button id="addTextBtn" class="collage-btn">
+                        <i class="fas fa-plus"></i> Добавить текст к коллажу
+                    </button>
                 </div>
             </div>
         </div>
@@ -868,27 +855,22 @@
         // Функция для копирования текста в буфер обмена
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                // Показываем уведомление о успешном копировании
+                // Показываем уведомление об успешном копировании
                 const notification = document.createElement('div');
+                notification.textContent = 'Текст скопирован!';
                 notification.style.position = 'fixed';
                 notification.style.bottom = '20px';
                 notification.style.right = '20px';
-                notification.style.backgroundColor = '#4cc9f0';
+                notification.style.backgroundColor = '#4361ee';
                 notification.style.color = 'white';
                 notification.style.padding = '10px 20px';
-                notification.style.borderRadius = '4px';
+                notification.style.borderRadius = '5px';
                 notification.style.zIndex = '1000';
                 notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                notification.textContent = 'Текст скопирован!';
-                
                 document.body.appendChild(notification);
                 
                 setTimeout(() => {
-                    notification.style.opacity = '0';
-                    notification.style.transition = 'opacity 0.5s';
-                    setTimeout(() => {
-                        document.body.removeChild(notification);
-                    }, 500);
+                    document.body.removeChild(notification);
                 }, 2000);
             }).catch(err => {
                 console.error('Ошибка при копировании: ', err);
@@ -925,7 +907,8 @@
             const generateBtn = document.getElementById('generateBtn');
             const downloadBtn = document.getElementById('downloadBtn');
             const resultCanvas = document.getElementById('collageCanvas');
-            const collageText = document.getElementById('collageText');
+            const addTextBtn = document.getElementById('addTextBtn');
+            const customTextContent = document.getElementById('customTextContent');
 
             // Контейнеры превью
             const topPreviewContainer = document.getElementById('topPreviewContainer');
@@ -942,7 +925,6 @@
             const COLLAGE_HEIGHT = 2400;
             const TOP_PART_HEIGHT = 1200;
             const BOTTOM_PART_HEIGHT = 1200;
-            const TEXT_COLUMN_WIDTH = 800; // Ширина текстовой колонки
 
             // Переменная для хранения имени файла второго изображения
             let bottomLeftFileName = '';
@@ -1145,6 +1127,72 @@
                 resultCanvas.scrollIntoView({ behavior: 'smooth' });
             });
 
+            // Добавление текста из колонки к коллажу
+            addTextBtn.addEventListener('click', async () => {
+                if (!resultCanvas.style.display || resultCanvas.style.display === 'none') {
+                    alert('Сначала создайте коллаж, затем добавьте текст');
+                    return;
+                }
+
+                try {
+                    // Создаем новый canvas с увеличенной шириной
+                    const newCanvas = document.createElement('canvas');
+                    const textColumnWidth = 300;
+                    const padding = 20;
+                    newCanvas.width = COLLAGE_WIDTH + textColumnWidth + padding * 2;
+                    newCanvas.height = COLLAGE_HEIGHT;
+                    
+                    const newCtx = newCanvas.getContext('2d');
+                    
+                    // Заливаем фон
+                    newCtx.fillStyle = '#2a2a2a';
+                    newCtx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+                    
+                    // Копируем оригинальный коллаж
+                    newCtx.drawImage(resultCanvas, 0, 0);
+                    
+                    // Добавляем текст
+                    const textX = COLLAGE_WIDTH + padding;
+                    const textY = padding;
+                    
+                    // Создаем div для текста
+                    const textDiv = document.createElement('div');
+                    textDiv.style.width = textColumnWidth + 'px';
+                    textDiv.style.padding = '10px';
+                    textDiv.style.backgroundColor = '#1e1e1e';
+                    textDiv.style.borderRadius = '6px';
+                    textDiv.style.position = 'absolute';
+                    textDiv.style.left = '-9999px';
+                    textDiv.innerHTML = customTextContent.innerHTML;
+                    document.body.appendChild(textDiv);
+                    
+                    // Используем html2canvas для рендеринга HTML
+                    const textCanvas = await html2canvas(textDiv, {
+                        backgroundColor: null,
+                        scale: 1,
+                        width: textColumnWidth,
+                        height: textDiv.offsetHeight
+                    });
+                    
+                    // Рисуем текст на новом canvas
+                    newCtx.drawImage(textCanvas, textX, textY);
+                    document.body.removeChild(textDiv);
+                    
+                    // Заменяем оригинальный canvas новым
+                    resultCanvas.width = newCanvas.width;
+                    resultCanvas.height = newCanvas.height;
+                    const ctx = resultCanvas.getContext('2d');
+                    ctx.drawImage(newCanvas, 0, 0);
+                    
+                    // Обновляем кнопку скачивания
+                    downloadBtn.disabled = false;
+                    
+                } catch (error) {
+                    console.error('Ошибка при добавлении текста:', error);
+                    alert('Произошла ошибка при добавлении текста');
+                }
+            });
+
             // Функция для отрисовки текста с учетом масштабирования
             function drawText(ctx, section, text, offsetX, offsetY, targetWidth, targetHeight) {
                 const data = collageData[section];
@@ -1173,69 +1221,13 @@
                 }
             }
 
-            // Скачивание коллажа с текстовой колонкой
+            // Скачивание коллажа с именем второго фото
             downloadBtn.addEventListener('click', () => {
-                // Создаем временный canvas для объединенного изображения
-                const finalCanvas = document.createElement('canvas');
-                const finalWidth = COLLAGE_WIDTH + TEXT_COLUMN_WIDTH;
-                const finalHeight = COLLAGE_HEIGHT;
-                finalCanvas.width = finalWidth;
-                finalCanvas.height = finalHeight;
-                const finalCtx = finalCanvas.getContext('2d');
-
-                // Заливаем фон
-                finalCtx.fillStyle = '#2a2a2a';
-                finalCtx.fillRect(0, 0, finalWidth, finalHeight);
-
-                // Копируем коллаж
-                finalCtx.drawImage(resultCanvas, 0, 0);
-
-                // Добавляем текстовую колонку
-                finalCtx.fillStyle = '#1e1e1e';
-                finalCtx.fillRect(COLLAGE_WIDTH, 0, TEXT_COLUMN_WIDTH, finalHeight);
-
-                // Рисуем текст
-                finalCtx.fillStyle = 'white';
-                finalCtx.font = '24px Roboto';
-                const text = collageText.value;
-                const lines = text.split('\n');
-                const lineHeight = 32;
-                const margin = 40;
-                let y = margin;
-
-                lines.forEach(line => {
-                    // Разбиваем длинные строки на несколько строк
-                    const maxLineWidth = TEXT_COLUMN_WIDTH - 2 * margin;
-                    let currentLine = '';
-                    
-                    for (const word of line.split(' ')) {
-                        const testLine = currentLine + word + ' ';
-                        const metrics = finalCtx.measureText(testLine);
-                        const testWidth = metrics.width;
-                        
-                        if (testWidth > maxLineWidth && currentLine.length > 0) {
-                            finalCtx.fillText(currentLine, COLLAGE_WIDTH + margin, y);
-                            y += lineHeight;
-                            currentLine = word + ' ';
-                        } else {
-                            currentLine = testLine;
-                        }
-                    }
-                    
-                    if (currentLine.length > 0) {
-                        finalCtx.fillText(currentLine, COLLAGE_WIDTH + margin, y);
-                        y += lineHeight;
-                    }
-                    
-                    // Проверяем, не вышли ли за пределы холста
-                    if (y > finalHeight - margin) return;
-                });
-
-                // Создаем ссылку для скачивания
                 const link = document.createElement('a');
-                const fileName = bottomLeftFileName ? `${bottomLeftFileName}-collage-with-text.png` : 'collage-with-text.png';
+                // Используем имя нижнего левого фото + суффикс
+                const fileName = bottomLeftFileName ? `${bottomLeftFileName}-collage.png` : 'collage-3560x2400.png';
                 link.download = fileName;
-                link.href = finalCanvas.toDataURL('image/png', 1.0);
+                link.href = resultCanvas.toDataURL('image/png', 1.0);
                 link.click();
             });
 
@@ -1308,5 +1300,7 @@
         // Запускаем обновление времени
         updateTime();
     </script>
+    <!-- Подключаем библиотеку html2canvas для рендеринга HTML в canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 </html>
