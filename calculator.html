@@ -824,6 +824,13 @@
         .tvh-copy-btn:hover {
             background-color: var(--secondary);
         }
+        
+        /* Новые стили для процентов */
+        .percentage-value {
+            font-size: 0.8rem;
+            color: #9CA3AF;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body class="bg-dark">
@@ -1255,6 +1262,11 @@
             return rounded.toString().replace(/(\.\d*?[1-9])0+$/, '$1').replace(/\.$/, '');
         }
 
+        // Функция для расчета процентного изменения между двумя ценами
+        function calculatePercentageChange(entryPrice, targetPrice) {
+            return Math.abs((targetPrice - entryPrice) / entryPrice * 100).toFixed(2);
+        }
+
         // Функция для генерации текста расчета
         function generateCalculationText() {
             const entryPrice = parseFloat(document.getElementById('entryPrice').value) || 0;
@@ -1278,6 +1290,29 @@
             // Получаем метод расчета стоп-лосса
             const stopMethodName = stopMethod === 'atr' ? 'По ATR' : 'По цене';
 
+            // Расчет стоп-лосса
+            let stopLossPrice;
+            if (stopMethod === 'atr') {
+                stopLossPrice = isLong ? 
+                    entryPrice - (atr * riskPercent / 100) : 
+                    entryPrice + (atr * riskPercent / 100);
+            } else {
+                stopLossPrice = stopLossPriceDirect;
+            }
+
+            // Расчет процентных изменений
+            const stopLossPercentage = calculatePercentageChange(entryPrice, stopLossPrice);
+            const takeProfit1Price = isLong ? 
+                entryPrice + (entryPrice - stopLossPrice) * rewardRatio1 : 
+                entryPrice - (stopLossPrice - entryPrice) * rewardRatio1;
+            const takeProfit1Percentage = calculatePercentageChange(entryPrice, takeProfit1Price);
+            const takeProfit2Price = isLong ? 
+                entryPrice + (entryPrice - stopLossPrice) * rewardRatio2 : 
+                entryPrice - (stopLossPrice - entryPrice) * rewardRatio2;
+            const takeProfit2Percentage = calculatePercentageChange(entryPrice, takeProfit2Price);
+            const liquidationPrice = calculateLiquidationPrice(entryPrice, leverage, isLong);
+            const liquidationPercentage = calculatePercentageChange(entryPrice, liquidationPrice);
+
             const text = `
 Калькулятор рисков - Результаты
 ===============================
@@ -1298,14 +1333,10 @@ ${stopMethod === 'atr' ? `ATR: ${formatNumber(atr, 8)} USDT\nРиск стоп-�
 -----------
 Цена входа: ${formatNumber(entryPrice, 8)} USDT
 Размер позиции: ${document.getElementById('positionSize').textContent}
-Стоп-лосс: ${document.getElementById('stopLoss').textContent}
-
-Уровни тейк-профита:
-${Array.from(document.getElementById('takeProfitLevels').children).map(el =>
-    el.textContent.trim().replace(/\s+/g, ' ')
-).join('\n')}
-
-Цена ликвидации: ${document.getElementById('liquidationPrice').textContent}
+Стоп-лосс: ${formatNumber(stopLossPrice, 8)} USDT (${stopLossPercentage}%)
+Тейк-профит 1: ${formatNumber(takeProfit1Price, 8)} USDT (${takeProfit1Percentage}%)
+Тейк-профит 2: ${formatNumber(takeProfit2Price, 8)} USDT (${takeProfit2Percentage}%)
+Цена ликвидации: ${formatNumber(liquidationPrice, 8)} USDT (${liquidationPercentage}%)
             `;
 
             return text;
@@ -1892,11 +1923,23 @@ ${Array.from(document.getElementById('takeProfitLevels').children).map(el =>
                 // Расчет цены ликвидации
                 const liquidationPrice = calculateLiquidationPrice(entryPrice, leverage, isLong);
 
+                // Расчет процентных изменений
+                const stopLossPercentage = calculatePercentageChange(entryPrice, stopLossPrice);
+                const liquidationPercentage = calculatePercentageChange(entryPrice, liquidationPrice);
+
                 // Обновление интерфейса
                 entryPriceResult.textContent = `${formatNumber(entryPrice, 8)} USDT`;
                 positionSizeSpan.textContent = formatNumber(positionSize, 8);
-                stopLossSpan.textContent = `${formatNumber(stopLossPrice, 8)} USDT`;
-                liquidationPriceSpan.textContent = `${formatNumber(liquidationPrice, 8)} USDT`;
+                
+                // Обновляем отображение стоп-лосса с процентом
+                const stopLossSpanText = `${formatNumber(stopLossPrice, 8)} USDT`;
+                const stopLossPercentageSpan = `<span class="percentage-value">(${stopLossPercentage}%)</span>`;
+                stopLossSpan.innerHTML = stopLossSpanText + stopLossPercentageSpan;
+                
+                // Обновляем отображение цены ликвидации с процентом
+                const liquidationPriceSpanText = `${formatNumber(liquidationPrice, 8)} USDT`;
+                const liquidationPercentageSpan = `<span class="percentage-value">(${liquidationPercentage}%)</span>`;
+                liquidationPriceSpan.innerHTML = liquidationPriceSpanText + liquidationPercentageSpan;
 
                 // Генерация уровней тейк-профита
                 generateTakeProfitLevels(entryPrice, stopLossPrice, isLong, rewardRatio1, rewardRatio2, positionSize);
@@ -1917,6 +1960,9 @@ ${Array.from(document.getElementById('takeProfitLevels').children).map(el =>
                         takeProfitPrice = entryPrice - (stopLossPrice - entryPrice) * ratio;
                     }
 
+                    // Расчет процентного изменения
+                    const percentageChange = calculatePercentageChange(entryPrice, takeProfitPrice);
+
                     // Правильный расчет прибыли
                     const priceDiff = Math.abs(takeProfitPrice - entryPrice);
                     const profit = priceDiff * positionSize;
@@ -1925,7 +1971,7 @@ ${Array.from(document.getElementById('takeProfitLevels').children).map(el =>
                     levelDiv.className = 'take-profit-item';
                     levelDiv.innerHTML = `
                         <span class="take-profit-ratio">Тейк-профит 1к${ratio}</span>
-                        <span class="take-profit-price">${formatNumber(takeProfitPrice, 8)} USDT</span>
+                        <span class="take-profit-price">${formatNumber(takeProfitPrice, 8)} USDT <span class="percentage-value">(${percentageChange}%)</span></span>
                         <span class="take-profit-value">+${formatNumber(profit, 8)} USDT</span>
                     `;
                     takeProfitLevelsDiv.appendChild(levelDiv);
