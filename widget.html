@@ -1173,80 +1173,13 @@
                 }
             }
 
-            // Скачивание коллажа с текстовой колонкой
+            // Скачивание коллажа
             downloadBtn.addEventListener('click', () => {
-                const text = collageText.value.trim();
-                
-                if (text) {
-                    // Если есть текст, создаем коллаж с текстовой колонкой
-                    const finalCanvas = document.createElement('canvas');
-                    const finalWidth = COLLAGE_WIDTH + TEXT_COLUMN_WIDTH;
-                    const finalHeight = COLLAGE_HEIGHT;
-                    finalCanvas.width = finalWidth;
-                    finalCanvas.height = finalHeight;
-                    const finalCtx = finalCanvas.getContext('2d');
-
-                    // Заливаем фон
-                    finalCtx.fillStyle = '#2a2a2a';
-                    finalCtx.fillRect(0, 0, finalWidth, finalHeight);
-
-                    // Копируем коллаж
-                    finalCtx.drawImage(resultCanvas, 0, 0);
-
-                    // Добавляем текстовую колонку
-                    finalCtx.fillStyle = '#1e1e1e';
-                    finalCtx.fillRect(COLLAGE_WIDTH, 0, TEXT_COLUMN_WIDTH, finalHeight);
-
-                    // Рисуем текст
-                    finalCtx.fillStyle = 'white';
-                    finalCtx.font = '24px Roboto';
-                    const lines = text.split('\n');
-                    const lineHeight = 32;
-                    const margin = 40;
-                    let y = margin;
-
-                    lines.forEach(line => {
-                        // Разбиваем длинные строки на несколько строк
-                        const maxLineWidth = TEXT_COLUMN_WIDTH - 2 * margin;
-                        let currentLine = '';
-                        
-                        for (const word of line.split(' ')) {
-                            const testLine = currentLine + word + ' ';
-                            const metrics = finalCtx.measureText(testLine);
-                            const testWidth = metrics.width;
-                            
-                            if (testWidth > maxLineWidth && currentLine.length > 0) {
-                                finalCtx.fillText(currentLine, COLLAGE_WIDTH + margin, y);
-                                y += lineHeight;
-                                currentLine = word + ' ';
-                            } else {
-                                currentLine = testLine;
-                            }
-                        }
-                        
-                        if (currentLine.length > 0) {
-                            finalCtx.fillText(currentLine, COLLAGE_WIDTH + margin, y);
-                            y += lineHeight;
-                        }
-                        
-                        // Проверяем, не вышли ли за пределы холста
-                        if (y > finalHeight - margin) return;
-                    });
-
-                    // Создаем ссылку для скачивания
-                    const link = document.createElement('a');
-                    const fileName = bottomLeftFileName ? `${bottomLeftFileName}.png` : 'collage.png';
-                    link.download = fileName;
-                    link.href = finalCanvas.toDataURL('image/png', 1.0);
-                    link.click();
-                } else {
-                    // Если текста нет, скачиваем только коллаж
-                    const link = document.createElement('a');
-                    const fileName = bottomLeftFileName ? `${bottomLeftFileName}.png` : 'collage.png';
-                    link.download = fileName;
-                    link.href = resultCanvas.toDataURL('image/png', 1.0);
-                    link.click();
-                }
+                const link = document.createElement('a');
+                const fileName = bottomLeftFileName ? `${bottomLeftFileName}.png` : 'collage.png';
+                link.download = fileName;
+                link.href = resultCanvas.toDataURL('image/png', 1.0);
+                link.click();
             });
 
             // Устанавливаем начальные позиции текста
