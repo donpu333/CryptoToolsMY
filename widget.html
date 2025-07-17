@@ -944,7 +944,7 @@
             const BOTTOM_PART_HEIGHT = 1200;
             const TEXT_COLUMN_WIDTH = 800; // Ширина текстовой колонки
 
-            // Переменная для хранения имени файла второго изображения
+            // Переменная для хранения имени файла нижнего левого изображения
             let bottomLeftFileName = '';
 
             // Объект для хранения данных о каждом блоке
@@ -1233,7 +1233,7 @@
 
                 // Создаем ссылку для скачивания
                 const link = document.createElement('a');
-                const fileName = bottomLeftFileName ? `${bottomLeftFileName}-collage-with-text.png` : 'collage-with-text.png';
+                const fileName = bottomLeftFileName ? `${bottomLeftFileName}.png` : 'collage.png';
                 link.download = fileName;
                 link.href = finalCanvas.toDataURL('image/png', 1.0);
                 link.click();
