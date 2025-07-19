@@ -1416,7 +1416,8 @@
                                 <div id="marketTypeHint" class="market-type-hint"></div>
                             </div>
                             <div id="coinError" class="validation-message">Пожалуйста, выберите криптовалюту</div>
-                
+                            <select id="symbol" size="5" class="w-full mt-2 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary hidden">
+                            </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-300 text-sm font-medium mb-2">Тип алерта</label>
@@ -2679,7 +2680,7 @@
                 coin.baseAsset.toLowerCase().includes(searchTerm)
             );
 
-            const limitedCoins = filteredCoins;
+            const limitedCoins = filteredCoins.slice;
 
             coinSelect.innerHTML = limitedCoins.map(coin => {
                 const badge = coin.marketType === 'spot'
@@ -3508,20 +3509,10 @@
         }
 
         function setupEventListeners() {
-           const coinSearch = document.getElementById('coinSearch');
-if (coinSearch) {
-    coinSearch.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const marketType = getMarketTypeBySymbol(searchTerm.toUpperCase());
-        const hint = document.getElementById('marketTypeHint');
-        
-        if (hint) {
-            hint.innerHTML = marketType === 'spot' 
-                ? '<span class="spot-badge">SPOT</span>' 
-                : '<span class="futures-badge">FUTURES</span>';
-        }
-    });
-}
+            const coinSearch = document.getElementById('coinSearch');
+            if (coinSearch) {
+                coinSearch.addEventListener('input', function() {
+                    updateCoinSelect();
 
                     const searchTerm = this.value.toLowerCase();
                     if (searchTerm.length >= 2) {
