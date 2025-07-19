@@ -2680,7 +2680,7 @@
                 coin.baseAsset.toLowerCase().includes(searchTerm)
             );
 
-            const limitedCoins = filteredCoins.slice(0, 100);
+            const limitedCoins = filteredCoins;
 
             coinSelect.innerHTML = limitedCoins.map(coin => {
                 const badge = coin.marketType === 'spot'
