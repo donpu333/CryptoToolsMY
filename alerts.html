@@ -2680,7 +2680,7 @@
                 coin.baseAsset.toLowerCase().includes(searchTerm)
             );
 
-            const limitedCoins = filteredCoins.slice;
+            const limitedCoins = filteredCoins.slice(0, 100);
 
             coinSelect.innerHTML = limitedCoins.map(coin => {
                 const badge = coin.marketType === 'spot'
@@ -4615,4 +4615,4 @@
     <!-- Подключаем библиотеку для сортировки -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 </body>
-</html>
+</html> 
