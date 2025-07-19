@@ -3509,10 +3509,20 @@
         }
 
         function setupEventListeners() {
-            const coinSearch = document.getElementById('coinSearch');
-            if (coinSearch) {
-                coinSearch.addEventListener('input', function() {
-                    updateCoinSelect();
+           const coinSearch = document.getElementById('coinSearch');
+if (coinSearch) {
+    coinSearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const marketType = getMarketTypeBySymbol(searchTerm.toUpperCase());
+        const hint = document.getElementById('marketTypeHint');
+        
+        if (hint) {
+            hint.innerHTML = marketType === 'spot' 
+                ? '<span class="spot-badge">SPOT</span>' 
+                : '<span class="futures-badge">FUTURES</span>';
+        }
+    });
+}
 
                     const searchTerm = this.value.toLowerCase();
                     if (searchTerm.length >= 2) {
